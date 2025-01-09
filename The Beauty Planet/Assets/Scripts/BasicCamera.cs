@@ -6,8 +6,11 @@ public class BasicCamera : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
+    public float speed = 5;
+
     private float playerx;
     private float playery;
+
     void Start()
     {
         
@@ -18,6 +21,7 @@ public class BasicCamera : MonoBehaviour
     {
         playerx = player.transform.position.x;
         playery = player.transform.position.y;
-        transform.position = new Vector3(playerx, playery, -10);
+        
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, playerx, speed), Mathf.Lerp(transform.position.y, playery, speed), -10);
     }
 }

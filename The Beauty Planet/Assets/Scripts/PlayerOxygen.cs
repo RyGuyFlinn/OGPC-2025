@@ -7,6 +7,7 @@ public class PlayerOxygen : MonoBehaviour
 
     public int maxOxygen = 100;
     public int currentOxygen;
+
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;
 
@@ -21,14 +22,6 @@ public class PlayerOxygen : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             LoseOxygen(1);
-
-        }
-
-        void Update()
-        {
-
-
-            
 
         }
         
