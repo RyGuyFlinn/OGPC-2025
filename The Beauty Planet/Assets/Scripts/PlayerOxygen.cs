@@ -31,7 +31,7 @@ public class PlayerOxygen : MonoBehaviour
             
 
         }
-        //Takes health away
+        
         void LoseOxygen(int amount)
         {
             currentOxygen -= amount;

@@ -35,7 +35,17 @@ public class PlayerController : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, Mathf.Lerp(body.velocity.y, 0, friction));
         }
-        
+        //Sprinting
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            runSpeed = 12.0f;
+            Debug.Log("Down");
+        }
+        else
+        {
+            runSpeed = 7.0f;
+            Debug.Log("Up");
+        }
         Debug.Log("Velocity: " + body.velocity);
     }
 }
