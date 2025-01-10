@@ -10,7 +10,7 @@ public class PlayerOxygen : MonoBehaviour
 
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;
-
+    public int Oxygenamount = 1;
   
     IEnumerator Start()
     {
@@ -21,7 +21,7 @@ public class PlayerOxygen : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            LoseOxygen(1);
+            LoseOxygen(Oxygenamount);
 
         }
         
