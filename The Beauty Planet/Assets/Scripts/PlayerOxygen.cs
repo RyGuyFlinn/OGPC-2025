@@ -11,6 +11,7 @@ public class PlayerOxygen : MonoBehaviour
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;
     public int Oxygenamount = 1;
+    public float deprecationMultiplayer = 1;
   
     IEnumerator Start()
     {
@@ -20,7 +21,7 @@ public class PlayerOxygen : MonoBehaviour
         //Makes you lose oxygen every second
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(deprecationMultiplayer);
             LoseOxygen(Oxygenamount);
 
         }

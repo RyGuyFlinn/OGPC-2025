@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+
     //Gets HealthBar Script
     public Healthbar healthBar;
     public PlayerOxygen oxygen;
+
+    public GameObject hurtOverlay;
+    
+    //Time Variables for health deprectiation
     public float time;
     public int prevtime;
+
     void Start()
     {
         //Sets health to max
@@ -24,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-
         //Just testing if damage works
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,8 +41,9 @@ public class PlayerHealth : MonoBehaviour
         if (oxygen.currentOxygen <= 0)
         {
             time += Time.deltaTime;
-                  int itime = (int)time;
-                    Debug.Log(itime);
+            int itime = (int)time;
+            Debug.Log(itime);
+
             if (prevtime != itime)
             {
                 TakeDamage(10);
@@ -51,11 +58,24 @@ public class PlayerHealth : MonoBehaviour
             
         }
     }
+
+    IEnumerator hurt()
+    {
+
+        Color imagecolor = hurtOverlay.GetComponent<Image>().color;
+
+        hurtOverlay.GetComponent<Image>().color = new Color(imagecolor.r, imagecolor.g, imagecolor.b, Mathf.Lerp(imagecolor.a, 1.0f, 0.75f));
+        yield return new WaitForSeconds(0.5f);
+        hurtOverlay.GetComponent<Image>().color = new Color(imagecolor.r, imagecolor.g, imagecolor.b, Mathf.Lerp(imagecolor.a, 0.0f, 0.75f));
+    }
+
     //Takes health away
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        StartCoroutine(hurt());
     }
     
 }
