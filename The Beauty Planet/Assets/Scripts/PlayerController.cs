@@ -39,13 +39,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             runSpeed = 12.0f;
-            Debug.Log("Down");
+           // Debug.Log("Down");
         }
         else
         {
             runSpeed = 7.0f;
-            Debug.Log("Up");
+           // Debug.Log("Up");
         }
-        Debug.Log("Velocity: " + body.velocity);
+        //Debug.Log("Velocity: " + body.velocity);
     }
 }

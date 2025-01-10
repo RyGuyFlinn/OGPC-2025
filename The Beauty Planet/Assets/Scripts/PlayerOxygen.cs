@@ -6,7 +6,7 @@ public class PlayerOxygen : MonoBehaviour
 {
 
     public int maxOxygen = 100;
-    public int currentOxygen;
+    public int currentOxygen = 100;
 
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;

@@ -1671,6 +1671,8 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 2073306994}
   oxygen: {fileID: 1839151040}
+  time: 0
+  prevtime: 0
 --- !u!114 &1839151040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,7 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxOxygen: 100
-  currentOxygen: 0
+  currentOxygen: 2
   oxygenBar: {fileID: 1856856790}
   Oxygenamount: 1
 --- !u!1 &1856856788
@@ -1787,7 +1789,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.163
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
