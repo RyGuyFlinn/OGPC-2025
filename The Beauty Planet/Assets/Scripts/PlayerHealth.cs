@@ -36,7 +36,10 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(20);
         }
-        
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
         //Starts taking damage if oxygen is out
         if (oxygen.currentOxygen <= 0)
         {
@@ -64,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
         Color imagecolor = hurtOverlay.GetComponent<Image>().color;
 
-        hurtOverlay.GetComponent<Image>().color = new Color(imagecolor.r, imagecolor.g, imagecolor.b, Mathf.Lerp(imagecolor.a, 1.0f, 0.75f));
+        hurtOverlay.GetComponent<Image>().color = new Color(imagecolor.r, imagecolor.g, imagecolor.b, Mathf.Lerp(imagecolor.a, 0.5f, 0.75f));
         yield return new WaitForSeconds(0.5f);
         hurtOverlay.GetComponent<Image>().color = new Color(imagecolor.r, imagecolor.g, imagecolor.b, Mathf.Lerp(imagecolor.a, 0.0f, 0.75f));
     }

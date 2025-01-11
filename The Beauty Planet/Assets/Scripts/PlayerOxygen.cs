@@ -19,12 +19,18 @@ public class PlayerOxygen : MonoBehaviour
         currentOxygen = maxOxygen;
         oxygenBar.SetMaxOxygen(maxOxygen);
         //Makes you lose oxygen every second
-        while (true)
-        {
-            yield return new WaitForSeconds(deprecationMultiplayer);
-            LoseOxygen(Oxygenamount);
+        
+            while (true)
+            {
+                if (currentOxygen < 0)
+            {
+                currentOxygen = 0;
+            }
 
-        }
+                yield return new WaitForSeconds(deprecationMultiplayer);
+                LoseOxygen(Oxygenamount);
+
+            }
         
         void LoseOxygen(int amount)
         {
