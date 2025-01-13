@@ -32,10 +32,10 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         //Just testing if damage works
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDamage(20);
+        //}
         if (currentHealth < 0)
         {
             currentHealth = 0;
