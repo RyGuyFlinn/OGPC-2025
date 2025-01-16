@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         // Movement Animations
         animator.SetFloat("V_Speed", body.velocity.y);
-           animator.SetFloat("H_Speed", body.velocity.x);
+        animator.SetFloat("H_Speed", body.velocity.x);
     }
 
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
