@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float friction = 0.0f;
     public float runSpeed = 7.0f;
 
+    public GameObject hotbar;
+
     void Start ()
     {
         body = GetComponent<Rigidbody2D>(); 
@@ -48,5 +50,10 @@ public class PlayerController : MonoBehaviour
            // Debug.Log("Up");
         }
         //Debug.Log("Velocity: " + body.velocity);
+    }
+
+    public void AddItem(GameObject ItemToAdd)
+    {
+        hotbar.GetComponent<hotbar>().AddItem(ItemToAdd);
     }
 }

@@ -10,8 +10,12 @@ public class Slot : MonoBehaviour
     public Sprite unSelected;
     public Sprite Selected;
 
+    public Image texture;
+
     void Update()
     {
+
+        // Changes Texture based on if the slot is selected or not
         if (selected == false)
         {
             GetComponent<Image>().sprite = unSelected;
@@ -21,5 +25,17 @@ public class Slot : MonoBehaviour
         {
             GetComponent<Image>().sprite = Selected;
         }
+    }
+
+    public void AddItem(GameObject ItemToAdd)
+    {
+        
+        var image = texture.GetComponent<Image>();
+        var tempColor = image.color;
+        tempColor.a = 1f;
+        image.color = tempColor;
+        
+        Debug.Log(ItemToAdd.GetComponent<IneractionItem>());
+        texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
     }
 }
