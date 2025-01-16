@@ -13,7 +13,10 @@ public class hotbar : MonoBehaviour
 
     public void AddItem(GameObject ItemToAdd)
     {
-        slots[1].GetComponent<Slot>().AddItem(ItemToAdd);
+        for(var i = 0; i < 6; i++)
+        {
+            slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
+        }
     }
 
     // Update is called once per frame

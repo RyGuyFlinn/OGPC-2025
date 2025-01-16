@@ -11,6 +11,7 @@ public class Slot : MonoBehaviour
     public Sprite Selected;
 
     public Image texture;
+    public GameObject currentItem;
 
     void Update()
     {
@@ -35,7 +36,7 @@ public class Slot : MonoBehaviour
         tempColor.a = 1f;
         image.color = tempColor;
         
-        Debug.Log(ItemToAdd.GetComponent<IneractionItem>());
+        currentItem = ItemToAdd;
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
     }
 }
