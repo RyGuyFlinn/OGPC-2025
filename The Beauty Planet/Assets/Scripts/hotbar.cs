@@ -8,6 +8,8 @@ public class hotbar : MonoBehaviour
     public GameObject[] slots;
     public GameObject player;
 
+    public GameObject ItemPrefab;
+
     public int selected = 1;
 
     private bool added_item = false;
@@ -45,9 +47,26 @@ public class hotbar : MonoBehaviour
         added_item = false;
     }
 
+    public void DropItem()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].GetComponent<Slot>().selected == true)
+            {
+                ItemPrefab = slots[i].GetComponent<Slot>().prefab;
+                Debug.Log(ItemPrefab);
+                slots[i].GetComponent<Slot>().RemoveItem();
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DropItem();
+        }
 
         //Changing what slot is selected with keyboard
         if (Input.GetKeyDown("1"))

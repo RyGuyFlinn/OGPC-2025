@@ -182,7 +182,7 @@ MonoBehaviour:
   MaxStack: 16
   icon: {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
   description: It's a Rock!
-  prefab: {fileID: 0}
+  prefab: {fileID: 7118629333224144203}
 --- !u!1 &7118629333224144203
 GameObject:
   m_ObjectHideFlags: 0

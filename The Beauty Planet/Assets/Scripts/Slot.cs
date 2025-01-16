@@ -13,6 +13,7 @@ public class Slot : MonoBehaviour
 
     public Image texture;
     public GameObject currentItem;
+    public GameObject prefab;
     public bool has_item = false;
 
     public TextMeshProUGUI quantityLabel;
@@ -56,7 +57,31 @@ public class Slot : MonoBehaviour
         currentItem = ItemToAdd;
         has_item = true;
         quantity += 1;
-        texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
 
+        var interactionItem = ItemToAdd.GetComponent<IneractionItem>();
+        GameObject prefab = interactionItem.prefab;
+        Debug.Log(prefab);
+        texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+    }
+
+    public void RemoveItem()
+    {
+        if (quantity <= 1)
+        {
+            var image = texture.GetComponent<Image>();
+            var tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
+
+            quantity = 0;
+            currentItem = null;
+            has_item = false;
+            texture.sprite = null;
+            //prefab = null;
+        }
+        else
+        {
+            quantity -= 1;
+        }
     }
 }
