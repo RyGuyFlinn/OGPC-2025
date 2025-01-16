@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IneractionItem : MonoBehaviour
 {
-    public string name;
+    public string itemName;
     public int MaxStack = 16;
     public Sprite icon;
     public string description;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Slot : MonoBehaviour
 {
@@ -12,9 +13,26 @@ public class Slot : MonoBehaviour
 
     public Image texture;
     public GameObject currentItem;
+    public bool has_item = false;
+
+    public TextMeshProUGUI quantityLabel;
+    public int quantity = 0;
+    public string item_name;
 
     void Update()
     {
+        //Change the quantity label
+        quantityLabel.text = "x" + quantity.ToString();
+
+        //Change the quantity label's visiblity based on the quanity if it is 0
+        if (quantity <= 0)
+        {
+            quantityLabel.gameObject.SetActive(false);
+        }
+        else
+        {
+            quantityLabel.gameObject.SetActive(true);
+        }
 
         // Changes Texture based on if the slot is selected or not
         if (selected == false)
@@ -30,13 +48,15 @@ public class Slot : MonoBehaviour
 
     public void AddItem(GameObject ItemToAdd)
     {
-        
         var image = texture.GetComponent<Image>();
         var tempColor = image.color;
         tempColor.a = 1f;
         image.color = tempColor;
-        
+
         currentItem = ItemToAdd;
+        has_item = true;
+        quantity += 1;
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+
     }
 }

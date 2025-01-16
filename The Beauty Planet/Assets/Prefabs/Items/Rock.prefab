@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3173323f71d5b409857bc2d630a2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rock
+  itemName: 
+  MaxStack: 16
   icon: {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
   description: It's a Rock!
   prefab: {fileID: 0}
@@ -205,7 +206,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

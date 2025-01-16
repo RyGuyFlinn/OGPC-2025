@@ -13,7 +13,6 @@ public class Rock : MonoBehaviour
             Debug.Log("Collected a Rock!");
             collider.GetComponent<PlayerController>().AddItem(item);
             Destroy(gameObject);
-
         }
     }
 }

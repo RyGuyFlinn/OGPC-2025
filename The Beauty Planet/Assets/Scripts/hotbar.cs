@@ -10,13 +10,35 @@ public class hotbar : MonoBehaviour
 
     public int selected = 1;
 
+    private bool added_item = false;
 
     public void AddItem(GameObject ItemToAdd)
     {
-        for(var i = 0; i < 6; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
-            slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
+            if (added_item == false)
+            {
+                if (slots[i].GetComponent<Slot>().has_item == false)
+                {
+                    slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
+                    added_item = true;
+                }
+                else
+                {
+                    if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
+                    {
+
+                        if (slots[i].GetComponent<Slot>().texture.sprite == ItemToAdd.GetComponent<IneractionItem>().icon)
+                            if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
+                                {
+                                slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
+                                added_item = true;
+                            }
+                    }
+                }
+            }   
         }
+        added_item = false;
     }
 
     // Update is called once per frame
@@ -77,39 +99,39 @@ public class hotbar : MonoBehaviour
 
         // Selection Detection
        if (selected == 1) {
+            slots[0].GetComponent<Slot>().selected = true;
+       } else {
+            slots[0].GetComponent<Slot>().selected = false;
+       }
+
+       if (selected == 2) {
             slots[1].GetComponent<Slot>().selected = true;
        } else {
             slots[1].GetComponent<Slot>().selected = false;
        }
 
-       if (selected == 2) {
+       if (selected == 3) {
             slots[2].GetComponent<Slot>().selected = true;
        } else {
             slots[2].GetComponent<Slot>().selected = false;
        }
 
-       if (selected == 3) {
+       if (selected == 4) {
             slots[3].GetComponent<Slot>().selected = true;
        } else {
             slots[3].GetComponent<Slot>().selected = false;
        }
 
-       if (selected == 4) {
+       if (selected == 5) {
             slots[4].GetComponent<Slot>().selected = true;
        } else {
             slots[4].GetComponent<Slot>().selected = false;
        }
 
-       if (selected == 5) {
+       if (selected == 6) {
             slots[5].GetComponent<Slot>().selected = true;
        } else {
             slots[5].GetComponent<Slot>().selected = false;
-       }
-
-       if (selected == 6) {
-            slots[6].GetComponent<Slot>().selected = true;
-       } else {
-            slots[6].GetComponent<Slot>().selected = false;
        }
     }
 }
