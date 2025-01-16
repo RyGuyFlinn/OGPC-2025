@@ -2970,14 +2970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a5ea39f30a7c84a971a24ae5cd321c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   slots:
   - {fileID: 1083237396}
   - {fileID: 195197538}
@@ -5855,6 +5847,7 @@ GameObject:
   - component: {fileID: 1839151040}
   - component: {fileID: 1839151041}
   - component: {fileID: 1839151042}
+  - component: {fileID: 1839151043}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6127,6 +6120,27 @@ PolygonCollider2D:
       - {x: 0.26859668, y: 0.7562383}
       - {x: 0.16529624, y: 0.85027605}
   m_UseDelaunayMesh: 0
+--- !u!95 &1839151043
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839151033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eaa94fcd503dee34980724e2ff86ad5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1854765521
 GameObject:
   m_ObjectHideFlags: 0

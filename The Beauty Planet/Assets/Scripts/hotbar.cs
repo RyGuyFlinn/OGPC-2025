@@ -5,7 +5,6 @@ using UnityEngine;
 public class hotbar : MonoBehaviour
 {
 
-    public GameObject[] inventory;
     public GameObject[] slots;
 
     public int selected = 1;

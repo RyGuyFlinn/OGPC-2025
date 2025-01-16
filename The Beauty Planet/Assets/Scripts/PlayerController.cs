@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
+    Animator animator;
 
     float horizontal;
     float vertical;
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
-        body = GetComponent<Rigidbody2D>(); 
+        body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -50,6 +52,10 @@ public class PlayerController : MonoBehaviour
            // Debug.Log("Up");
         }
         //Debug.Log("Velocity: " + body.velocity);
+
+        // Movement Animations
+        animator.SetFloat("V_Speed", body.velocity.y);
+           animator.SetFloat("H_Speed", body.velocity.x);
     }
 
     public void AddItem(GameObject ItemToAdd)
