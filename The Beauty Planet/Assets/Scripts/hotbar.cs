@@ -6,12 +6,13 @@ public class hotbar : MonoBehaviour
 {
 
     public GameObject[] slots;
+    public GameObject player;
 
     public int selected = 1;
 
     private bool added_item = false;
 
-    public void AddItem(GameObject ItemToAdd)
+    public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -36,6 +37,10 @@ public class hotbar : MonoBehaviour
                     }
                 }
             }   
+        }
+        if (added_item == true)
+        {
+            player.GetComponent<PlayerController>().destroyItem(ItemParent.gameObject);
         }
         added_item = false;
     }

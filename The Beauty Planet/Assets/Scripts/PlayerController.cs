@@ -58,8 +58,15 @@ public class PlayerController : MonoBehaviour
            animator.SetFloat("H_Speed", body.velocity.x);
     }
 
-    public void AddItem(GameObject ItemToAdd)
+    public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
     {
-        hotbar.GetComponent<hotbar>().AddItem(ItemToAdd);
+        hotbar.GetComponent<hotbar>().AddItem(ItemToAdd, ItemParent.gameObject);
+    }
+
+    public void destroyItem(GameObject ItemParent)
+    {
+        Debug.Log("Destory");
+        Destroy(ItemParent.gameObject);
+
     }
 }

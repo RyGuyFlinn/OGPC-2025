@@ -10,9 +10,7 @@ public class Rock : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            Debug.Log("Collected a Rock!");
-            collider.GetComponent<PlayerController>().AddItem(item);
-            Destroy(gameObject);
+            collider.GetComponent<PlayerController>().AddItem(item, this.gameObject);
         }
     }
 }
