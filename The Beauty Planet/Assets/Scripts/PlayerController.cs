@@ -67,6 +67,6 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Destory");
         Destroy(ItemParent.gameObject);
-
+        
     }
 }

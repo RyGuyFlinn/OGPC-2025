@@ -72,16 +72,18 @@ public class Slot : MonoBehaviour
             var tempColor = image.color;
             tempColor.a = 0f;
             image.color = tempColor;
-
+           
             quantity = 0;
             currentItem = null;
             has_item = false;
             texture.sprite = null;
             //prefab = null;
+            
         }
         else
         {
             quantity -= 1;
+            
         }
     }
 }
