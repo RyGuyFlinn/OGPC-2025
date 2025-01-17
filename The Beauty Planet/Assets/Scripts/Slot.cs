@@ -13,7 +13,7 @@ public class Slot : MonoBehaviour
 
     public Image texture;
     public GameObject currentItem;
-    public GameObject prefab;
+    public GameObject itemToDrop;
     public bool has_item = false;
 
     public TextMeshProUGUI quantityLabel;
@@ -58,10 +58,10 @@ public class Slot : MonoBehaviour
         has_item = true;
         quantity += 1;
 
-        var interactionItem = ItemToAdd.GetComponent<IneractionItem>();
-        GameObject prefab = interactionItem.prefab;
-        Debug.Log(prefab);
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+        itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
+        itemToDrop.SetActive(false);
+        Debug.Log(itemToDrop);
     }
 
     public void RemoveItem()
@@ -77,8 +77,8 @@ public class Slot : MonoBehaviour
             currentItem = null;
             has_item = false;
             texture.sprite = null;
-            //prefab = null;
-            
+            Destroy(itemToDrop.gameObject);
+            itemToDrop = null;
         }
         else
         {

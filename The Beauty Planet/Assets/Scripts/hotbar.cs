@@ -22,6 +22,8 @@ public class hotbar : MonoBehaviour
             {
                 if (slots[i].GetComponent<Slot>().has_item == false)
                 {
+                    slots[i].GetComponent<Slot>().itemToDrop = ItemToAdd.GetComponent<IneractionItem>().prefab;
+                    Debug.Log(ItemToAdd.GetComponent<IneractionItem>().prefab);
                     slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
                     added_item = true;
                 }
@@ -33,6 +35,8 @@ public class hotbar : MonoBehaviour
                         if (slots[i].GetComponent<Slot>().texture.sprite == ItemToAdd.GetComponent<IneractionItem>().icon)
                             if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
                                 {
+                                slots[i].GetComponent<Slot>().itemToDrop = ItemToAdd.GetComponent<IneractionItem>().prefab;
+                                Debug.Log(ItemToAdd.GetComponent<IneractionItem>().prefab);
                                 slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
                                 added_item = true;
                             }
@@ -53,8 +57,9 @@ public class hotbar : MonoBehaviour
         {
             if (slots[i].GetComponent<Slot>().selected == true)
             {
-                ItemPrefab = slots[i].GetComponent<Slot>().prefab;
-                Debug.Log(ItemPrefab);
+                ItemPrefab = slots[i].GetComponent<Slot>().itemToDrop;
+                Debug.Log("Prefab: " + slots[i].GetComponent<Slot>().itemToDrop);
+                player.GetComponent<PlayerController>().dropItem(ItemPrefab.gameObject);
                 slots[i].GetComponent<Slot>().RemoveItem();
             }
         }

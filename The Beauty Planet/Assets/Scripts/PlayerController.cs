@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 7.0f;
 
     public GameObject hotbar;
+    private GameObject itemToDrop;
 
     void Start ()
     {
@@ -67,6 +68,15 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Destory");
         Destroy(ItemParent.gameObject);
-        
+    }
+
+    public void dropItem(GameObject dropItem)
+    {
+        if (dropItem != null)
+        {
+            Debug.Log("Drop: " + dropItem);
+            itemToDrop = Instantiate(dropItem, new Vector2(this.transform.position.x, this.transform.position.y + 1), this.transform.rotation);
+            itemToDrop.SetActive(true);
+        }
     }
 }
