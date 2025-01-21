@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8029640726122798543, guid: 57d0bf68209b300498e2014f15daf2ec, type: 3}
   player: {fileID: 0}
+  sprite: {fileID: 7348966254585338945}
