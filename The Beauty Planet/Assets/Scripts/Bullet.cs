@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 5;
+    public int damage = 25;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
             {
                 if (col.tag == "Enemy")
                 {
-                    Destroy(col.gameObject);
+                    col.GetComponent<EnemyHealth>().takeDamage(damage);
                     Destroy(this.gameObject);
                 }
 
