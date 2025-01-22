@@ -2622,7 +2622,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4653,10 +4653,11 @@ GameObject:
   m_Component:
   - component: {fileID: 939477486}
   - component: {fileID: 939477485}
-  - component: {fileID: 939477483}
   - component: {fileID: 939477481}
   - component: {fileID: 939477480}
   - component: {fileID: 939477479}
+  - component: {fileID: 939477487}
+  - component: {fileID: 939477488}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4748,51 +4749,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!61 &939477483
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939477478}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.052640676}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.882353, y: 1.882353}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.7770717}
-  m_EdgeRadius: 0
 --- !u!212 &939477485
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4861,6 +4817,78 @@ Transform:
   - {fileID: 984116855}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &939477487
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939477478}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.05163908}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.882353, y: 1.882353}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9719753, y: 1.7790747}
+  m_EdgeRadius: 0
+--- !u!50 &939477488
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939477478}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &939584530
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,14 +6345,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1839151033}
-    - target: {fileID: 2776184279958226940, guid: d4b04efd4dad983498ba818c01bb7605, type: 3}
-      propertyPath: offset.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776184279958226940, guid: d4b04efd4dad983498ba818c01bb7605, type: 3}
-      propertyPath: offset.y
-      value: -0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 6493477464159772579, guid: d4b04efd4dad983498ba818c01bb7605, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7569,7 +7589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+uXwZUxWwIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziUDBAjprTWE9EBgQjq5+CJba6xBljz64CvDf+9KtrFLpyfEe293365W/iJcmhJSq/RSc7ZSDMj3HvFn8q3Xkq9wojslt/wCjeaTM5t7EQ2ad2q5Qnzow4wqwGqe/pA74cUDBJ3kmdLFgu0gUsYahDMqDCCllfXREqGvHjnhT//Zh5zxNHrypwuenge9Kx5TkBZ0K22EjaxSOZkKWpTAvOVWPGnUk0omsZla4Y2nSghuaifEnsvQaURL47APFDBOsbNQfvgwQSAHvsut99kNX2eZAVub0vQ85xpHVOUlP1U1t4KafeXsQIXzlabjYKrKufqH7g8DnWlVvDZlhwNfwuY83b/Tc0qN7cy1C887zsN8jlTsaSLgMwf5ppZaOcmQtNr5UGdgNG//3jqLckj3LV5ZvQNd+f/b8T1cQ/OnSPAi8dTDuAK2QoWBh7sHjVfzCw2HzTB1CkS9i98GPuiuu0I18cK1sUjVXUpvL1FOeylZhJn5bpyNlJYQ4Np0CZIKe95gGnt/g3dcp+wd80L9Y6mL11zzBu5CAtzqB4M7aqOOt8syuTquwORrZwWX0Jr2xBvOKVJSVgvWnUkTtnU6o2knbOc4+3u1yGM2mSUsmwCjdDBl0z48sVHCZuxxlIxmo2RMwu5xiX1SsamM1uPBW5Ntcol71nxDektNy7DsTNPjkl8K1Rk5l5naphpArqsMN+OgsQg+S7ZgHAe0BWu5DPdNvmIiVLoHFt8SxaHTxclqGrdZYlLyg7IeiUkUPhox8fBtlzcaDhyOvniT7EqufwBQSwMEFAAACAgAAICf63DoTEhtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJxmqlFUkqaaWpKYqKBWYqZbqp5ilFSikWKsVGSkYVRkolSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf65fBlTFbAgAAEwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf63DoTEhtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+    dataString: UEsDBBQAAAgIAACAn+tfObXiWgIAABEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtzmzAQ/isenZuOTWwn6a0ljtNDYk/cTi5cBFpAYyExesSPjP97VwIMpdMT0rff7n77EJ+ES1NDZpVea85eFAPybUL8mXyZ9MZnONJCyR0/Q8d558yWnkQD541arhCfeTejKrCaZ99lITx5iqCTPFe6WrECYmWsQTinwgCatLLeWyL0OSFH/Nw8eJcTnqI7fzrj6WE6ueAxA2lB99SO2NEalpOZoFUNzEvuyYuOvWhoEotpGV54poTgplVC7KkOlca0Ng7rQALjFCsL6SO8lsCL0raXq/Mmzw3YVpKmp0eusUFNVPJDNV2rqNk3uj6ocD7Pch4kNTFf/jHfzII516p67tLOpj6FLXm2f6OnjBo76OoQfux1z0J3DlTsaSrgvQT5qtZaOcnQaLXzrs5A9Nhfr5XFJWT7Hm+kjkBX/382voZLKP4YC16l3vR13gA7oUK7w+RB42B+ouCwF6YNgahX8dvAL1oMF6g1PHFtLJraKqWXlyqnPZWsQs98Nc7GSksIcCu6BkmFPW0xjB1PcGQbpB1Znqh/Km3y1ta9gJFLgHv+dDoybdXhOixTqsMLmHLjrOASetHe8Ip9ipWUzYINe9K57ZzOaTZwKxxnf68Wuc0X9ynLF8AonS7Z8gbuWJSye3YbpdF9lM5J2D0usU4qto3Qtj04NdkHl7hn3R9ksta0DsvOND2s+blSg5ZzmatdpgHkpolwFQ4ak+CjZCvGsUE7sJbLMG/ymRChsj2w5BooCZWujlbTpI+SkJp/KOuRhMThl5EQD193eavhg8PBJ++CXcjlD1BLAwQUAAAICAAAgJ/rcOhMSG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0knGaqUVSSpppakpiooFZipluqnmKUVKKRYqxUZKRhVGSiVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/rXzm14loCAAARBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rcOhMSG0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -11311,6 +11331,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1593839379}
   - {fileID: 519420032}
   - {fileID: 1167561783}
   - {fileID: 1839151036}
@@ -11420,4 +11441,3 @@ SceneRoots:
   - {fileID: 626288828}
   - {fileID: 1601408780}
   - {fileID: 941828653}
-  - {fileID: 1593839379}

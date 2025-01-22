@@ -14,12 +14,18 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Enemy")
+        if (col.tag != "Player")
         {
-            Destroy(col.gameObject);
-            Destroy(this.gameObject);
-        }
+            if (col.tag != "Item")
+            {
+                if (col.tag == "Enemy")
+                {
+                    Destroy(col.gameObject);
+                    Destroy(this.gameObject);
+                }
 
-        
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

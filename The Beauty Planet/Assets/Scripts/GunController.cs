@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject player;
+    public Transform muzzle;
 
     public SpriteRenderer sprite;
 
@@ -33,7 +34,7 @@ public class GunController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate (projectile, transform.position, transform.rotation);
+            Instantiate (projectile, muzzle.position, transform.rotation);
         }
     }
 }
