@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical"); 
 
-        body.AddForce(new Vector2(horizontal, vertical) * acceleration, ForceMode2D.Force);
+        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         body.velocity = new Vector2(Mathf.Clamp(body.velocity.x, -runSpeed, runSpeed), Mathf.Clamp(body.velocity.y, -runSpeed, runSpeed));
         
         if (horizontal == 0)
