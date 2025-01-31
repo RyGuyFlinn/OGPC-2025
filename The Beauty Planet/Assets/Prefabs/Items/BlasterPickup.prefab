@@ -128,7 +128,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.47451782, y: 49.172295, z: 199.64606, w: 0.2273674}
+  m_margin: {x: -0.47451782, y: 48.91923, z: 199.64606, w: 0.4749298}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -179,10 +179,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Rock
-  MaxStack: 16
-  icon: {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
-  description: It's a Rock!
+  MaxStack: 1
+  icon: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
+  description: It can shoot plasma blasts!
   prefab: {fileID: 7118629333224144203}
+  hasHoldingItem: 1
+  holdingItem: {fileID: 8911873401053300246, guid: d4b04efd4dad983498ba818c01bb7605, type: 3}
 --- !u!1 &7118629333224144203
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +199,7 @@ GameObject:
   - component: {fileID: 2363391005991520674}
   - component: {fileID: 2266169529108522878}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: BlasterPickup
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +263,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

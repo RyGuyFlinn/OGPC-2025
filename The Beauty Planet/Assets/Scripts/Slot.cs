@@ -14,7 +14,9 @@ public class Slot : MonoBehaviour
     public Image texture;
     public GameObject currentItem;
     public GameObject itemToDrop;
+    public GameObject holdingItem;
     public bool has_item = false;
+    public bool hasHoldingItem = false;
 
     public TextMeshProUGUI quantityLabel;
     public int quantity = 0;
@@ -22,6 +24,17 @@ public class Slot : MonoBehaviour
 
     void Update()
     {
+        if (hasHoldingItem == true)
+        {
+            if (selected == false)
+            {
+                holdingItem.SetActive(false);
+            }
+            else
+            {
+                holdingItem.SetActive(true);
+            }
+        }
         //Change the quantity label
         quantityLabel.text = "x" + quantity.ToString();
 
@@ -61,7 +74,17 @@ public class Slot : MonoBehaviour
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
         itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
         itemToDrop.SetActive(false);
-        Debug.Log(itemToDrop);
+
+        if (currentItem.GetComponent<IneractionItem>().hasHoldingItem == true)
+        {
+            GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
+            holdingItem = Instantiate(item);
+            hasHoldingItem = true;
+            Debug.Log("Here is the Blaser game objcet " + item);
+        }
+        else{
+            Debug.Log("No Holding Item");
+        }
     }
 
     public void RemoveItem()
@@ -77,7 +100,9 @@ public class Slot : MonoBehaviour
             currentItem = null;
             has_item = false;
             texture.sprite = null;
+            hasHoldingItem = false;
             Destroy(itemToDrop.gameObject);
+            Destroy(holdingItem.gameObject);
             itemToDrop = null;
         }
         else

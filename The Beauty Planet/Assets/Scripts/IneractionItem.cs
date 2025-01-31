@@ -9,6 +9,8 @@ public class IneractionItem : MonoBehaviour
     public Sprite icon;
     public string description;
     public GameObject prefab;
+    public bool hasHoldingItem;
+    public GameObject holdingItem;
 
     // Start is called before the first frame update
     void Start()

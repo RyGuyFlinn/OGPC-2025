@@ -57,10 +57,13 @@ public class hotbar : MonoBehaviour
         {
             if (slots[i].GetComponent<Slot>().selected == true)
             {
-                ItemPrefab = slots[i].GetComponent<Slot>().itemToDrop;
-                Debug.Log("Prefab: " + slots[i].GetComponent<Slot>().itemToDrop);
-                player.GetComponent<PlayerController>().dropItem(ItemPrefab.gameObject);
-                slots[i].GetComponent<Slot>().RemoveItem();
+                if (slots[i].GetComponent<Slot>().has_item == true)
+                {
+                    ItemPrefab = slots[i].GetComponent<Slot>().itemToDrop;
+                    Debug.Log("Prefab: " + slots[i].GetComponent<Slot>().itemToDrop);
+                    player.GetComponent<PlayerController>().dropItem(ItemPrefab.gameObject);
+                    slots[i].GetComponent<Slot>().RemoveItem();
+                }
             }
         }
     }
@@ -68,6 +71,22 @@ public class hotbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // for (int i = 0; i < slots.Length; i++)
+        // {
+        //     if (slots[i].GetComponent<Slot>().selected == true)
+        //     {
+        //         if (slots[i].GetComponent<Slot>().has_item == true)
+        //         {
+        //             if (slots[i].GetComponent<Slot>().hasHoldingItem.GetComponent<IneractionItem>().hasHoldingItem == true)
+        //             {
+        //                 Debug.Log("Holding Blaster!");
+        //                 GameObject item = slots[i].GetComponent<Slot>().currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
+        //                 Instantiate(item, player.gameObject.transform.position, player.gameObject.transform.rotation);
+        //             }
+        //         }
+        //     }
+        // }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             DropItem();
