@@ -39,7 +39,7 @@ public class Slot : MonoBehaviour
         quantityLabel.text = "x" + quantity.ToString();
 
         //Change the quantity label's visiblity based on the quanity if it is 0
-        if (quantity <= 0)
+        if (quantity <= 1)
         {
             quantityLabel.gameObject.SetActive(false);
         }
