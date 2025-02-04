@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour
     public float rotation = 0f;
     public float speed = 1f;
 
-
+    private PlayerHealth health;
     private Vector2 spawnPoint;
     private float timer = 0f;
 
@@ -16,6 +16,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = GameObject.Find("Player").GetComponent<PlayerHealth>();
         spawnPoint = new Vector2(transform.position.x, transform.position.y);
     }
 
@@ -34,6 +35,19 @@ public class EnemyBullet : MonoBehaviour
         float x = timer * speed * transform.right.x;
         float y = timer * speed * transform.right.y;
         return new Vector2(x+spawnPoint.x, y+spawnPoint.y);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            health.TakeDamage(10);
+            Destroy(this.gameObject);
+        }
+        if (col.tag == "Enviroment")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 

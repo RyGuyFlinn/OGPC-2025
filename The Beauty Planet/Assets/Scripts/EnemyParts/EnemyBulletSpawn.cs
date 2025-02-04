@@ -19,11 +19,12 @@ public class EnemyBulletSpawn : MonoBehaviour
 
 
     private GameObject spawnedBullet;
+    private GameObject player;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-       
+       player = GameObject.Find("Player");
     }
 
 
@@ -32,10 +33,20 @@ public class EnemyBulletSpawn : MonoBehaviour
     {
         timer += Time.deltaTime;
         if(spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f,0f,transform.eulerAngles.z+1f);
+        
+        if(spawnerType == SpawnerType.Straight)
+        {
+            Vector2 direction = player.transform.position - transform.position;
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+            transform.rotation *= Quaternion.Euler(0, 0, 90);
+        }
+
         if(timer >= firingRate) {
             Fire();
             timer = 0;
         }
+
+        
     }
 
 

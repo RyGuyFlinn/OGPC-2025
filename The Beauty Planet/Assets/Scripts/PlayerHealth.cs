@@ -36,9 +36,9 @@ public class PlayerHealth : MonoBehaviour
         //{
         //    TakeDamage(20);
         //}
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            Destroy(this.gameObject);
         }
         //Starts taking damage if oxygen is out
         if (oxygen.currentOxygen <= 0)
