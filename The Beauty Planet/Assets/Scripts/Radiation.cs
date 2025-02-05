@@ -25,12 +25,13 @@ public class Radiation : MonoBehaviour
         
     }
     void OnTriggerStay2D(Collider2D collide)
-    {
+    { Debug.Log("Collided");
         if (collide.tag == "Player")
         {
             time += Time.deltaTime;
              itime = (int)time;
-            Debug.Log(itime);
+            
+            //Debug.Log(itime);
 
             if (prevtime != itime)
             {
