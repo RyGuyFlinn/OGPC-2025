@@ -16,7 +16,8 @@ public class EnemyBulletSpawn : MonoBehaviour
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 1f;
-
+    [SerializeField] private float speedSpeed = 1f;
+    [SerializeField] private int spawnAmount = 1;
 
     private GameObject spawnedBullet;
     private GameObject player;
@@ -32,7 +33,7 @@ public class EnemyBulletSpawn : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f,0f,transform.eulerAngles.z+1f);
+        if(spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f,0f,transform.eulerAngles.z+speedSpeed);
         
         if(spawnerType == SpawnerType.Straight)
         {
@@ -45,17 +46,18 @@ public class EnemyBulletSpawn : MonoBehaviour
             Fire();
             timer = 0;
         }
-
-        
     }
 
 
     private void Fire() {
         if(bullet) {
+            for (int i = 0; i < spawnAmount; i++)
+            {
             spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
             spawnedBullet.GetComponent<EnemyBullet>().speed = speed;
             spawnedBullet.GetComponent<EnemyBullet>().bulletLife = bulletLife;
-            spawnedBullet.transform.rotation = transform.rotation;
+            spawnedBullet.transform.rotation = transform.rotation  *= Quaternion.Euler(0, 0, (360 / spawnAmount));
+            }      
         }
     }
 }

@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
         //}
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            Debug.Log("Die Demon");
         }
         //Starts taking damage if oxygen is out
         if (oxygen.currentOxygen <= 0)
