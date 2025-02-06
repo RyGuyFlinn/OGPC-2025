@@ -12,7 +12,7 @@ public class PlayerOxygen : MonoBehaviour
     public Oxygenbar oxygenBar;
     public int Oxygenamount = 1;
     public float deprecationMultiplayer = 1;
-  
+    
     IEnumerator Start()
     {
         //Sets oxygen to max
