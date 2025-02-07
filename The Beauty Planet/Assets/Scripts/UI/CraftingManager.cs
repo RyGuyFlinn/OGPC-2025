@@ -40,6 +40,11 @@ public class CraftingManager : MonoBehaviour
         ItemDescription.text = selectedButton.GetComponent<CraftingButton>().description.ToString();
     }
 
+    public void CraftItem()
+    {
+        hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+    }
+
     void Start()
     {
         SelectItem();

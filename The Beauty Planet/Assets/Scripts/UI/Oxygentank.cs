@@ -31,6 +31,5 @@ public class Oxygentank : MonoBehaviour
             oxygen.oxygenBar.SetOxygen(oxygen.currentOxygen);
             Destroy(gameObject);
         }
-        Debug.Log("Collided");
     }
 }

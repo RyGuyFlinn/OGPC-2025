@@ -46,7 +46,10 @@ public class hotbar : MonoBehaviour
         }
         if (added_item == true)
         {
-            player.GetComponent<PlayerController>().destroyItem(ItemParent.gameObject);
+            if (ItemParent != null)
+            {
+                player.GetComponent<PlayerController>().destroyItem(ItemParent.gameObject);
+            }
         }
         added_item = false;
     }
