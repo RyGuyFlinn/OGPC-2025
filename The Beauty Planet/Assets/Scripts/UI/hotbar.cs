@@ -68,6 +68,19 @@ public class hotbar : MonoBehaviour
         }
     }
 
+    public int HasItem(GameObject Item)
+    {
+        int quantity = 0;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].GetComponent<Slot>().texture.sprite == Item.GetComponent<IneractionItem>().icon)
+            {
+                quantity += slots[i].GetComponent<Slot>().quantity;
+            }
+        }
+        return quantity;
+    }
+
     // Update is called once per frame
     void Update()
     {
