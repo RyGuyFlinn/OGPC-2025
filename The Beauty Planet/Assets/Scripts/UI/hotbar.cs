@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class hotbar : MonoBehaviour
 {
@@ -71,12 +72,12 @@ public class hotbar : MonoBehaviour
         }
     }
 
-    public int HasItem(GameObject Item)
+    public int HasItem(Sprite Item)
     {
         int quantity = 0;
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].GetComponent<Slot>().texture.sprite == Item.GetComponent<IneractionItem>().icon)
+            if (slots[i].GetComponent<Slot>().texture.sprite == Item)
             {
                 quantity += slots[i].GetComponent<Slot>().quantity;
             }

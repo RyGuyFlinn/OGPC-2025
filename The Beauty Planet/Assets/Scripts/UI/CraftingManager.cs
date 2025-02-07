@@ -20,7 +20,7 @@ public class CraftingManager : MonoBehaviour
     public TextMeshProUGUI slotTwoQuantity;
     public TextMeshProUGUI slotThreeQuantity;
 
-    public int hasItem(GameObject Item, int quantity)
+    public int hasItem(Sprite Item, int quantity)
     {
         int ItemQuantity = hotbar.GetComponent<hotbar>().HasItem(Item);
         return ItemQuantity;
@@ -42,7 +42,10 @@ public class CraftingManager : MonoBehaviour
 
     public void CraftItem()
     {
-        hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+        if (hotbar.GetComponent<hotbar>().HasItem(slotOneTexture.sprite) > 0)
+        {
+            hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+        }
     }
 
     void Start()
