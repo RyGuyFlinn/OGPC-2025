@@ -49119,6 +49119,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &725219649
@@ -49622,6 +49623,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &772055156
@@ -114290,6 +114292,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   - {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
+  craftingRecepieItems:
+  - {fileID: 1051438115435591594, guid: a21c9505c61ca1a49ae7775d1ce89a99, type: 3}
+  - {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
   craftingRecepieQuantities: 020000000100000001000000
   Item: {fileID: 6298350966995505302, guid: e071b9d3d82ce654ba5bac032c1d6d4e, type: 3}
 --- !u!1 &1051271743
@@ -114429,6 +114434,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &1064589456
@@ -114630,6 +114636,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &1077133555
@@ -115904,6 +115911,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1 &1175635960
@@ -116058,8 +116066,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
+  craftingRecepieItems:
+  - {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
+  - {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
   craftingRecepieQuantities: 010000000100000001000000
-  Item: {fileID: 0}
+  Item: {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
 --- !u!1001 &1182366841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116951,6 +116962,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1 &1318117446
@@ -117090,6 +117102,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1 &1320963400
@@ -117899,6 +117912,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1 &1416396329
@@ -118053,6 +118067,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   - {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   - {fileID: 21300000, guid: 2bba550dcd29d4440a9b15491311a2d0, type: 3}
+  craftingRecepieItems:
+  - {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
+  - {fileID: 8395487381032290730, guid: d035f299287141a4cbd4e0ab0c6dd60e, type: 3}
   craftingRecepieQuantities: 020000000100000001000000
   Item: {fileID: 0}
 --- !u!1 &1419838685
@@ -118318,6 +118335,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &1433283853
@@ -120929,6 +120947,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
   - {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
   - {fileID: 21300000, guid: 4f13c84a42517634ca87f3b12d26d67f, type: 3}
+  craftingRecepieItems:
+  - {fileID: 1051438115435591594, guid: a21c9505c61ca1a49ae7775d1ce89a99, type: 3}
+  - {fileID: 1051438115435591594, guid: a21c9505c61ca1a49ae7775d1ce89a99, type: 3}
   craftingRecepieQuantities: 010000000100000001000000
   Item: {fileID: 1051438115435591594, guid: a21c9505c61ca1a49ae7775d1ce89a99, type: 3}
 --- !u!1 &1757781366
@@ -123514,6 +123535,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1001 &1963170151
@@ -123878,6 +123900,7 @@ MonoBehaviour:
   name: 
   description: 
   craftingRecepie: []
+  craftingRecepieItems: []
   craftingRecepieQuantities: 
   Item: {fileID: 0}
 --- !u!1 &2022865466

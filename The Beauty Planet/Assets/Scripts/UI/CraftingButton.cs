@@ -8,6 +8,7 @@ public class CraftingButton : MonoBehaviour
     public string name = "";
     public string description = "";
     public Sprite[] craftingRecepie;
+    public GameObject[] craftingRecepieItems;
     public int[] craftingRecepieQuantities;
 
     public GameObject Item;

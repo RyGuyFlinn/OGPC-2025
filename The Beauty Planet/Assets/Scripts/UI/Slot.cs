@@ -80,10 +80,6 @@ public class Slot : MonoBehaviour
             GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
             holdingItem = Instantiate(item);
             hasHoldingItem = true;
-            Debug.Log("Here is the Blaser game objcet " + item);
-        }
-        else{
-            Debug.Log("No Holding Item");
         }
     }
 

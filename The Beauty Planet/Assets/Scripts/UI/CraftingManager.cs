@@ -42,9 +42,27 @@ public class CraftingManager : MonoBehaviour
 
     public void CraftItem()
     {
-        if (hotbar.GetComponent<hotbar>().HasItem(slotOneTexture.sprite) > 0)
+        //Check if player has items to craft
+        if (hotbar.GetComponent<hotbar>().HasItem(slotOneTexture.sprite) >= int.Parse(slotOneQuantity.text))
         {
-            hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+            if (hotbar.GetComponent<hotbar>().HasItem(slotTwoTexture.sprite) >= int.Parse(slotTwoQuantity.text))
+            {
+                Debug.Log("Craft");
+                // call function in the hotbar to Craft item
+                hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+
+
+                // subtract the items from the player inventory
+                for (int i = 0; i < int.Parse(slotOneQuantity.text); i++)
+                {
+                    hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[0]);
+                }
+
+                for (int i = 0; i < int.Parse(slotTwoQuantity.text); i++)
+                {
+                    hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[1]);
+                }
+            }
         }
     }
 

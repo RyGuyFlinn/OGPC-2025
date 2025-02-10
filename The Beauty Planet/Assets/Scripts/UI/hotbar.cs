@@ -64,12 +64,31 @@ public class hotbar : MonoBehaviour
                 if (slots[i].GetComponent<Slot>().has_item == true)
                 {
                     ItemPrefab = slots[i].GetComponent<Slot>().itemToDrop;
-                    Debug.Log("Prefab: " + slots[i].GetComponent<Slot>().itemToDrop);
                     player.GetComponent<PlayerController>().dropItem(ItemPrefab.gameObject);
                     slots[i].GetComponent<Slot>().RemoveItem();
                 }
             }
         }
+    }
+
+    public void SubItem(GameObject ItemToSub)
+    {
+        bool subbedItem = false;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (subbedItem == false)
+            {
+                if (slots[i].GetComponent<Slot>().has_item == true)
+                {
+                    if (slots[i].GetComponent<Slot>().texture.sprite == ItemToSub.GetComponent<IneractionItem>().icon)
+                    {
+                        slots[i].GetComponent<Slot>().RemoveItem();
+                        subbedItem = true;
+                    }
+                }
+            }
+        }
+        subbedItem = false;
     }
 
     public int HasItem(Sprite Item)

@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
     public void destroyItem(GameObject ItemParent)
     {
-        Debug.Log("Destory");
         Destroy(ItemParent.gameObject);
     }
 
@@ -74,7 +73,6 @@ public class PlayerController : MonoBehaviour
     {
         if (dropItem != null)
         {
-            Debug.Log("Drop: " + dropItem);
             itemToDrop = Instantiate(dropItem, new Vector2(this.transform.position.x, this.transform.position.y + 1), this.transform.rotation);
             itemToDrop.SetActive(true);
         }
