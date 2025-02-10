@@ -48,6 +48,6 @@ MonoBehaviour:
   MaxStack: 16
   icon: {fileID: 21300000, guid: a45de4f80612d324d92f182d7bd319b3, type: 3}
   description: It's Chill
-  prefab: {fileID: 0}
+  prefab: {fileID: 2437070919529004043, guid: 4d5c7a7916cecb441a067bbb7ad49450, type: 3}
   hasHoldingItem: 0
   holdingItem: {fileID: 0}
