@@ -43,7 +43,7 @@ public class EnemyBulletSpawn : MonoBehaviour
         }
 
         if(timer >= firingRate) {
-            Fire();
+            FireHomming();
             timer = 0;
         }
     }
@@ -53,10 +53,20 @@ public class EnemyBulletSpawn : MonoBehaviour
         if(bullet) {
             for (int i = 0; i < spawnAmount; i++)
             {
-            spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-            spawnedBullet.GetComponent<EnemyBullet>().speed = speed;
-            spawnedBullet.GetComponent<EnemyBullet>().bulletLife = bulletLife;
-            spawnedBullet.transform.rotation = transform.rotation  *= Quaternion.Euler(0, 0, (360 / spawnAmount));
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                spawnedBullet.GetComponent<EnemyBullet>().speed = speed;
+                spawnedBullet.GetComponent<EnemyBullet>().bulletLife = bulletLife;
+                spawnedBullet.transform.rotation = transform.rotation  *= Quaternion.Euler(0, 0, (360 / spawnAmount));
+            }      
+        }
+    }
+
+    private void FireHomming() {
+        if(bullet) {
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                spawnedBullet.transform.rotation = transform.rotation  *= Quaternion.Euler(0, 0, (360 / spawnAmount));
             }      
         }
     }
