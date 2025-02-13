@@ -41,6 +41,8 @@ public class WorkBench : MonoBehaviour
         {
             player = null;
             label.SetActive(false);
+            //Closes menu when you walk away
+            CraftingUI.SetActive(false);
         }
     }
 }
