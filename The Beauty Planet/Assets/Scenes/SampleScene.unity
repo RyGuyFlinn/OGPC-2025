@@ -125826,7 +125826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1578338059
 Rigidbody2D:
   serializedVersion: 4
@@ -132910,7 +132910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &9036389767091002990
 SpriteRenderer:
   m_ObjectHideFlags: 0
