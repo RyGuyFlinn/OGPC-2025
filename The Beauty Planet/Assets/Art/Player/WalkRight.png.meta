@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d579d181431919f46bc30c4aa1545125
+guid: 56ed65690dd3f1c40abe7c7954edebc6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkRight 2.0_0
+      name: WalkRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cc4015e904273c4b9e4f5a81c912ba9
-      internalID: -1602586751
+      spriteID: eb04bc7322344204c9b7f0d834227145
+      internalID: -1552892341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_1
+      name: WalkRight_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba83b41c2d36d2a4581efec06f66701f
-      internalID: -102245670
+      spriteID: 4ca6f814dc551144d84b8f523a2c2772
+      internalID: 1580744043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_2
+      name: WalkRight_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da2bee90357f0614f87926cb6647fe2e
-      internalID: -240155425
+      spriteID: d4c980561aa3aa544b837adb4cc9ecbd
+      internalID: 717161512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_3
+      name: WalkRight_3
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efd8dfa0d645ab2439e67ad168743e79
-      internalID: 2143575530
+      spriteID: 6133c670db355ad40a9d98f715613fae
+      internalID: -618074902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_4
+      name: WalkRight_4
       rect:
         serializedVersion: 2
         x: 32
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b68884aa608da94eb65b744f6efc8df
-      internalID: -1426753623
+      spriteID: 3c6ee97019405ed408e8043a3a58ba56
+      internalID: -213955259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_5
+      name: WalkRight_5
       rect:
         serializedVersion: 2
         x: 64
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e8f444870c7b6429d6fdf75c779da7
-      internalID: 1384726726
+      spriteID: 8a13100d40d747b478e7a9672b880322
+      internalID: 1351059437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_6
+      name: WalkRight_6
       rect:
         serializedVersion: 2
         x: 0
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61ac673daf7d0b740bc21d78b54d1091
-      internalID: -1419169905
+      spriteID: 29d6a084aa3cd4c4dae0a4d553689b7a
+      internalID: 677698108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkRight 2.0_7
+      name: WalkRight_7
       rect:
         serializedVersion: 2
         x: 32
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58c0b0a7e0b0c71458b5b5717cd674c0
-      internalID: 112851081
+      spriteID: b0def5b7518a26e4eb67aae67819d79a
+      internalID: 1639051387
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WalkRight 2.0_0: -1602586751
-      WalkRight 2.0_1: -102245670
-      WalkRight 2.0_2: -240155425
-      WalkRight 2.0_3: 2143575530
-      WalkRight 2.0_4: -1426753623
-      WalkRight 2.0_5: 1384726726
-      WalkRight 2.0_6: -1419169905
-      WalkRight 2.0_7: 112851081
+      WalkRight_0: -1552892341
+      WalkRight_1: 1580744043
+      WalkRight_2: 717161512
+      WalkRight_3: -618074902
+      WalkRight_4: -213955259
+      WalkRight_5: 1351059437
+      WalkRight_6: 677698108
+      WalkRight_7: 1639051387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

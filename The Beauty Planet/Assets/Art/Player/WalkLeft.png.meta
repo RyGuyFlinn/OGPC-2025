@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b9fd382b7d298aa4398956a0cde97e61
+guid: d9d251177ed2ad6498effeb228e2c192
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkLeft 2.0_0
+      name: WalkLeft (3.0)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 042c811fdf4d7d54b9ca33c61f453e8a
-      internalID: -1165692053
+      spriteID: 489893a79a15d4448bdea337384d3ec2
+      internalID: 968627534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_1
+      name: WalkLeft (3.0)_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd1e9b0e5d8c28b458540cd5a0823a41
-      internalID: -1000116950
+      spriteID: b527458cb39049f4aaebf43c81d61997
+      internalID: -1888172162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_2
+      name: WalkLeft (3.0)_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7725e32118c88004c97eececebdf6d10
-      internalID: -1624672968
+      spriteID: e98fd5aeeb54f3b448de081e83259a96
+      internalID: 1714720532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_3
+      name: WalkLeft (3.0)_3
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dbb943ac5953d844949d0c4da50e0f2
-      internalID: 1558324862
+      spriteID: 636cf57410265e34ebb84b8cdb3c3c01
+      internalID: -2138993388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_4
+      name: WalkLeft (3.0)_4
       rect:
         serializedVersion: 2
         x: 32
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 940f4051e4b47e140abd956a1ad8fbc9
-      internalID: 372662962
+      spriteID: 65516d399aeb9ff479ddea90b26b8cd0
+      internalID: 2060301767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_5
+      name: WalkLeft (3.0)_5
       rect:
         serializedVersion: 2
         x: 64
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9847ec6cdc944d4686d2aed889f4588
-      internalID: -1849875700
+      spriteID: 89ee148cefba12f42a110687ed759679
+      internalID: 841941218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_6
+      name: WalkLeft (3.0)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f65924ead96e1e44dbe828150e562a6c
-      internalID: 1741987135
+      spriteID: 011ebbfb49021e74bab46e8827c77d3b
+      internalID: 708450977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkLeft 2.0_7
+      name: WalkLeft (3.0)_7
       rect:
         serializedVersion: 2
         x: 32
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 339fd1bfae271914e9aebf26aa65a344
-      internalID: 1546851889
+      spriteID: e25dd8267385eb24c9a9cbcfa052a676
+      internalID: -95750985
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WalkLeft 2.0_0: -1165692053
-      WalkLeft 2.0_1: -1000116950
-      WalkLeft 2.0_2: -1624672968
-      WalkLeft 2.0_3: 1558324862
-      WalkLeft 2.0_4: 372662962
-      WalkLeft 2.0_5: -1849875700
-      WalkLeft 2.0_6: 1741987135
-      WalkLeft 2.0_7: 1546851889
+      WalkLeft (3.0)_0: 968627534
+      WalkLeft (3.0)_1: -1888172162
+      WalkLeft (3.0)_2: 1714720532
+      WalkLeft (3.0)_3: -2138993388
+      WalkLeft (3.0)_4: 2060301767
+      WalkLeft (3.0)_5: 841941218
+      WalkLeft (3.0)_6: 708450977
+      WalkLeft (3.0)_7: -95750985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
