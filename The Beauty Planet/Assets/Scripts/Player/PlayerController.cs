@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     float horizontal;
     float vertical;
+    private float distance;
     
     public float acceleration = 20.0f;
     public float friction = 0.0f;
@@ -25,11 +26,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {  
-
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical"); 
+        vertical = Input.GetAxisRaw("Vertical");
+        distance = Mathf.Sqrt(horizontal*horizontal + vertical*vertical);
+        if(distance == 0)
+        {
+            distance = 1;
+        }
 
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        body.velocity = new Vector2(horizontal / distance * runSpeed, vertical / distance * runSpeed);
         body.velocity = new Vector2(Mathf.Clamp(body.velocity.x, -runSpeed, runSpeed), Mathf.Clamp(body.velocity.y, -runSpeed, runSpeed));
         
         if (horizontal == 0)
