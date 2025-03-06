@@ -14,26 +14,32 @@ public class EnemyDashMovement : MonoBehaviour
 
     private Vector3 dir;
 
+    private bool canDash = true;
+
 
     void Start()
     {
         player = GameObject.Find("Player");
         rgbd = GetComponent<Rigidbody2D>();
-
-        StartCoroutine(Dash());
     }
 
+    void Update()
+    {
+        if (dashing == true && canDash == true)
+        {
+            StartCoroutine(Dash());
+        }
+    }
 
     IEnumerator Dash()
     {
-        while (dashing)
-        {
-            yield return new WaitForSeconds(dashWaitTime);
+        canDash = false;
+        yield return new WaitForSeconds(dashWaitTime);
+        canDash = true;
 
-            dir = player.transform.position - transform.position;
-            dir = dir.normalized;
-            rgbd.AddForce(dir * dashForce, ForceMode2D.Impulse);
-        }
+        dir = player.transform.position - transform.position;
+        dir = dir.normalized;
+        rgbd.AddForce(dir * dashForce, ForceMode2D.Impulse);
     }
 
     void OnTriggerEnter2D(Collider2D col)
