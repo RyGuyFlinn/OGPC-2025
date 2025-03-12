@@ -34,7 +34,7 @@ public class PotBreak : MonoBehaviour
         } }
     if (Collide.tag == "Bullet"){
         print("Bullet Collide!");
-        Destroy(Collide);
+        Destroy(Collide.gameObject);
             break_1.SetActive(true);
             break_2.SetActive(true);
             break_3.SetActive(true);

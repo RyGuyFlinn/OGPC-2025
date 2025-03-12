@@ -4978,7 +4978,7 @@ GameObject:
   - component: {fileID: 5849556739376739338}
   m_Layer: 0
   m_Name: Pot 0
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

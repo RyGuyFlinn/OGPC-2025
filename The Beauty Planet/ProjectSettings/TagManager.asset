@@ -9,6 +9,7 @@ TagManager:
   - Enviroment
   - Renddist
   - Bullet
+  - Breakable
   layers:
   - Default
   - TransparentFX
