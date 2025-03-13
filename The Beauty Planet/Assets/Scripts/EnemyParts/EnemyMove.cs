@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    private Transform target;
 
     UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
     {
+        target = GameObject.Find("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
