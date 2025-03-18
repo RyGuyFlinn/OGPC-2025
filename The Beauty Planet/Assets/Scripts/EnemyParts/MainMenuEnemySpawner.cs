@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class MainMenuEnemySpawner : MonoBehaviour
 {
-    public int SpawnNumber = 1;
     public GameObject[] Enemies;
-    public int TeamNumber = 1;
 
-    private GameObject Enemy;
+    private float time = 0.0f;
+    public float interpolationPeriod =  1.0f;
+    private GameObject enemy;
 
-    void Start()
-    {
-        StartCoroutine(SpawnEnemy());
-    }
+    void Update () {
+        time += Time.deltaTime;
 
-    IEnumerator SpawnEnemy()
-    {
-        while (true)
-        {
-            for (int i = 0; i < SpawnNumber; i++)
-            {
-                Enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Enemies[Random.Range(0, Enemies.Length)].transform.rotation);
-                Enemy.GetComponent<MainMenuEnemyMove>().GetTarget();
-                Enemy.GetComponent<MainMenuEnemyMove>().TeamNumber = TeamNumber;
-            }
-            yield return new WaitForSeconds(2);
+        if (time >= interpolationPeriod) {
+            time = 0.0f;
+
+            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Enemies[Random.Range(0, Enemies.Length)].transform.rotation);
+                    
         }
     }
 }

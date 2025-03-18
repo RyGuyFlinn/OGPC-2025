@@ -48,6 +48,11 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (col.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<EnemyHealth>().takeDamage(10);
+            Destroy(this.gameObject);
+        }
     }
 }
 
