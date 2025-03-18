@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     private Transform target;
+    public float speed;
+    public bool upAndDown;
 
     UnityEngine.AI.NavMeshAgent agent;
 
@@ -20,5 +22,14 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         agent.SetDestination(target.position);
+        
+        if (upAndDown == true)
+        {
+            speed = GetComponent<Rigidbody2D>().velocity.y;
+        }
+        else
+        {
+            speed = GetComponent<Rigidbody2D>().velocity.x;
+        }
     }
 }
