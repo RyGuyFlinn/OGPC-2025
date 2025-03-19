@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     
     public float acceleration = 20.0f;
     public float friction = 0.0f;
-    public float runSpeed = 7.0f;
+    public float runSpeed = 5.0f;
 
     public GameObject hotbar;
     private GameObject itemToDrop;
@@ -46,19 +46,6 @@ public class PlayerController : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, Mathf.Lerp(body.velocity.y, 0, friction));
         }
         
-        //Sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            runSpeed = 12.0f;
-           // Debug.Log("Down");
-        }
-        else
-        {
-            runSpeed = 7.0f;
-           // Debug.Log("Up");
-        }
-        //Debug.Log("Velocity: " + body.velocity);
-
         // Movement Animations
         animator.SetFloat("V_Speed", body.velocity.y);
         animator.SetFloat("H_Speed", body.velocity.x);
