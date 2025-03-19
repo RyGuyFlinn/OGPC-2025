@@ -11,6 +11,8 @@ public class SeagulNado : MonoBehaviour
     public int spawnAmount = 1;
 
     public GameObject[] lasers;
+    public GameObject[] enemies;
+    public GameObject rocket;
 
     enum State { Idle, HomingSeagul, Rockets, Minions, Lasers }
     private State currentState;
@@ -31,13 +33,13 @@ public class SeagulNado : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            currentState = State.Lasers;
+            currentState = State.Minions;
         }
 
         switch (currentState)
         {
             case State.Idle:
-                
+
                 break;
 
             case State.HomingSeagul:
@@ -46,28 +48,24 @@ public class SeagulNado : MonoBehaviour
                     FireHomming();
                     timer = 0;
                 }
-                StartCoroutine(goToIdle());
+                currentState = State.Idle;
                 break;
 
             case State.Rockets:
-                
+                SpawnRockets();
+                currentState = State.Idle;
                 break;
 
             case State.Minions:
-
+                SpawnEnemies();
+                currentState = State.Idle;
                 break;
 
             case State.Lasers:
                 FireLasers();
-                StartCoroutine(goToIdle());
+                currentState = State.Idle;
                 break;
         }
-    }
-
-    private IEnumerator goToIdle()
-    {
-        yield return new WaitForSeconds(1f); // Adjust delay if needed
-        currentState = State.Idle;
     }
 
     private void FireHomming()
@@ -93,6 +91,28 @@ public class SeagulNado : MonoBehaviour
             selectedObjects.RemoveAt(index);
 
             obj.GetComponent<Laser>().Fire();
+        }
+    }
+
+    private void SpawnEnemies()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Vector2 localPosition = new Vector2(Random.Range(-4, 4), Random.Range(-4, 4));
+            Vector2 worldPosition = transform.TransformPoint(localPosition);
+
+            Instantiate(enemies[Random.Range(0, enemies.Length)], worldPosition, Quaternion.identity);
+        }
+    }
+
+    private void SpawnRockets()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Vector2 localPosition = new Vector2(Random.Range(-8, 8), Random.Range(-8, 8));
+            Vector2 worldPosition = transform.TransformPoint(localPosition);
+
+            Instantiate(rocket, worldPosition, Quaternion.identity);
         }
     }
 }
