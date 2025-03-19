@@ -21,6 +21,8 @@ public class SeagulNado : MonoBehaviour
     private GameObject player;
     private float timer = 0f;
 
+    private bool isAttacking = false;
+
     void Start()
     {
         currentState = State.Idle; // Start in Idle state
@@ -31,15 +33,10 @@ public class SeagulNado : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Input.GetKeyDown("space"))
-        {
-            currentState = State.Minions;
-        }
-
         switch (currentState)
         {
             case State.Idle:
-
+                StartCoroutine(Idle());
                 break;
 
             case State.HomingSeagul:
@@ -65,6 +62,18 @@ public class SeagulNado : MonoBehaviour
                 FireLasers();
                 currentState = State.Idle;
                 break;
+        }
+    }
+
+    IEnumerator Idle()
+    {
+        if (isAttacking == false)
+        {
+            isAttacking = true;
+            yield return new WaitForSeconds(Random.Range(1, 5));
+
+            int randomState = Random.Range(0, System.Enum.GetValues(typeof(State)).Length);
+            currentState = (State)randomState;
         }
     }
 
@@ -109,10 +118,9 @@ public class SeagulNado : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector2 localPosition = new Vector2(Random.Range(-8, 8), Random.Range(-8, 8));
-            Vector2 worldPosition = transform.TransformPoint(localPosition);
+            Vector2 localPosition = new Vector2(player.transform.position.x - Random.Range(-2, 2), player.transform.position.y - Random.Range(-2, 2));
 
-            Instantiate(rocket, worldPosition, Quaternion.identity);
+            Instantiate(rocket, localPosition, Quaternion.identity);
         }
     }
 }
