@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     //Gets HealthBar Script
     public Healthbar healthBar;
     public PlayerOxygen oxygen;
+    public GameObject deathScreen;
 
     public GameObject hurtOverlay;
     
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         //}
         if (currentHealth <= 0)
         {
-            Debug.Log("Die Demon");
+            deathScreen.SetActive(true);
         }
         //Starts taking damage if oxygen is out
         if (oxygen.currentOxygen <= 0)
@@ -80,5 +81,11 @@ public class PlayerHealth : MonoBehaviour
 
         StartCoroutine(hurt());
     }
-    
+
+    public void resetHealth()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
+    }
+
 }

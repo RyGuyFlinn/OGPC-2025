@@ -36,6 +36,12 @@ public class PlayerOxygen : MonoBehaviour
         {
             currentOxygen -= amount;
             oxygenBar.SetOxygen(currentOxygen);
-        }
+        } 
+    }
+
+    public void resetOxegen()
+    {
+        currentOxygen = maxOxygen;
+        oxygenBar.SetOxygen(currentOxygen);
     }
 }

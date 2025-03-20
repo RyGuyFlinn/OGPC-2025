@@ -132,5 +132,6 @@ MonoBehaviour:
   projectile: {fileID: 8029640726122798543, guid: 57d0bf68209b300498e2014f15daf2ec, type: 3}
   player: {fileID: 0}
   muzzle: {fileID: 2933733340224896215}
+  fireRate: 0.3
   sprite: {fileID: 7348966254585338945}
   offset: {x: 0.25, y: -0.25}

@@ -24,6 +24,15 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        
+        if (col.tag == "Boss")
+        {
+            col.gameObject.GetComponent<BossBar>().TakeDamage(damage);
+            Destroy(this.gameObject);
+        }
+        if (col.tag == "Bullet")
+        {
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

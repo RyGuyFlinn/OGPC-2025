@@ -8,6 +8,9 @@ public class GunController : MonoBehaviour
     public GameObject player;
     public Transform muzzle;
 
+    public float fireRate = 0.3f;
+    private float nextFire;
+
     public SpriteRenderer sprite;
 
     public Vector2 offset;
@@ -37,8 +40,10 @@ public class GunController : MonoBehaviour
             offset.x = Mathf.Abs(offset.x);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
         {
+            nextFire = Time.time + fireRate;
+
             Instantiate (projectile, muzzle.position, transform.rotation);
         }
     }

@@ -10,6 +10,10 @@ public class SeagulNado : MonoBehaviour
     public float firingRate = 1f;
     public int spawnAmount = 1;
 
+    public bool isFighting = false;
+
+    public int currentStage = 1;
+
     public GameObject[] lasers;
     public GameObject[] enemies;
     public GameObject rocket;
@@ -71,18 +75,65 @@ public class SeagulNado : MonoBehaviour
 
     IEnumerator Idle()
     {
-        if (isAttacking == false)
+        if (isFighting == true)
         {
-            isAttacking = true;
-            yield return new WaitForSeconds(Random.Range(3, 7));
+            if (isAttacking == false)
+            {
+                isAttacking = true;
 
-            int randomState = Random.Range(0, System.Enum.GetValues(typeof(State)).Length);
-            currentState = (State)randomState;
+                if (currentStage == 1)
+                {
+                    yield return new WaitForSeconds(Random.Range(3, 5));
+                }
+                else
+                {
+                    yield return new WaitForSeconds(Random.Range(2, 4));
+                }
+
+                SetRandomState();
+            }
         }
+    }
+
+    void SetRandomState()
+    {
+        State[] weightedStates;
+
+        if (currentStage == 1)
+        {
+            weightedStates = new State[]
+            {
+            State.HomingSeagul, State.HomingSeagul,
+            State.Rockets, State.Rockets,
+            State.Minions, State.Minions, State.Minions, State.Minions,
+            State.Lasers, State.Lasers
+            };
+        }
+        else
+        {
+            weightedStates = new State[]
+            {
+            State.HomingSeagul, State.HomingSeagul, State.HomingSeagul,
+            State.Rockets, State.Rockets,
+            State.Minions, State.Minions, State.Minions,
+            State.Lasers, State.Lasers, State.Lasers
+            };
+        }
+
+        currentState = weightedStates[Random.Range(0, weightedStates.Length)];
     }
 
     private void FireHomming()
     {
+        if (currentStage == 1)
+        {
+            spawnAmount = 2;
+        }
+        else
+        {
+            spawnAmount = 3;
+        }
+
         if (bullet)
         {
             for (int i = 0; i < spawnAmount; i++)
@@ -97,34 +148,73 @@ public class SeagulNado : MonoBehaviour
     {
         List<GameObject> selectedObjects = new List<GameObject>(lasers);
 
-        for (int i = 0; i < 3; i++)
+        if (currentStage == 1)
         {
-            int index = Random.Range(0, selectedObjects.Count);
-            GameObject obj = selectedObjects[index];
-            selectedObjects.RemoveAt(index);
+            for (int i = 0; i < 2; i++)
+            {
+                int index = Random.Range(0, selectedObjects.Count);
+                GameObject obj = selectedObjects[index];
+                selectedObjects.RemoveAt(index);
 
-            obj.GetComponent<Laser>().Fire();
+                obj.GetComponent<Laser>().Fire();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                int index = Random.Range(0, selectedObjects.Count);
+                GameObject obj = selectedObjects[index];
+                selectedObjects.RemoveAt(index);
+
+                obj.GetComponent<Laser>().Fire();
+            }
         }
     }
 
     private void SpawnEnemies()
     {
-        for (int i = 0; i < 3; i++)
+        if (currentStage == 1)
         {
-            Vector2 localPosition = new Vector2(Random.Range(-4, 4), Random.Range(-4, 4));
-            Vector2 worldPosition = transform.TransformPoint(localPosition);
+            for (int i = 0; i < 2; i++)
+            {
+                Vector2 localPosition = new Vector2(Random.Range(-4, 4), Random.Range(-4, 4));
+                Vector2 worldPosition = transform.TransformPoint(localPosition);
 
-            Instantiate(enemies[Random.Range(0, enemies.Length)], worldPosition, Quaternion.identity);
+                Instantiate(enemies[Random.Range(0, enemies.Length)], worldPosition, Quaternion.identity);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Vector2 localPosition = new Vector2(Random.Range(-4, 4), Random.Range(-4, 4));
+                Vector2 worldPosition = transform.TransformPoint(localPosition);
+
+                Instantiate(enemies[Random.Range(0, enemies.Length)], worldPosition, Quaternion.identity);
+            }
         }
     }
 
     private void SpawnRockets()
     {
-        for (int i = 0; i < 3; i++)
+        if (currentStage == 1)
         {
-            Vector2 localPosition = new Vector2(player.transform.position.x - Random.Range(-2, 2), player.transform.position.y - Random.Range(-2, 2));
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 localPosition = new Vector2(player.transform.position.x - Random.Range(-2, 2), player.transform.position.y - Random.Range(-2, 2));
 
-            Instantiate(rocket, localPosition, Quaternion.identity);
+                Instantiate(rocket, localPosition, Quaternion.identity);
+            }
+        }
+        if (currentStage == 2)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Vector2 localPosition = new Vector2(player.transform.position.x - Random.Range(-2, 2), player.transform.position.y - Random.Range(-2, 2));
+
+                Instantiate(rocket, localPosition, Quaternion.identity);
+            }
         }
     }
 }

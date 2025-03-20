@@ -6,23 +6,39 @@ using UnityEngine.UI;
 
 public class BossBar : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int StageOneMaxHealth = 100;
+    public int StageTwoMaxHealth = 100;
     public int currentHealth;
+    public int stage = 1;
+    public SeagulNado seagulNado;
 
     //Gets HealthBar Script
-    public Healthbar healthBar;
-
-    public GameObject hurtOverlay;
-    
-    //Time Variables for health deprectiation
-    public float time;
-    public int prevtime;
+    public BossBar1 healthBar;
 
     void Start()
     {
         //Sets health to max
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = StageOneMaxHealth;
+        healthBar.SetMaxHealth(StageOneMaxHealth);
+    }
+
+    void Update()
+    {
+        seagulNado.currentStage = stage;
+        if (currentHealth <= 0)
+        {
+            if (stage == 1)
+            {
+                stage = 2;
+                seagulNado.currentStage = 2;
+                currentHealth = StageTwoMaxHealth;
+                healthBar.SetMaxHealth(StageTwoMaxHealth);
+            }
+            else if (stage == 2)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     //Takes health away
