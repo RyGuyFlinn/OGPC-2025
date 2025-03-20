@@ -46,21 +46,25 @@ public class SeagulNado : MonoBehaviour
                     timer = 0;
                 }
                 currentState = State.Idle;
+                isAttacking = false;
                 break;
 
             case State.Rockets:
                 SpawnRockets();
                 currentState = State.Idle;
+                isAttacking = false;
                 break;
 
             case State.Minions:
                 SpawnEnemies();
                 currentState = State.Idle;
+                isAttacking = false;
                 break;
 
             case State.Lasers:
                 FireLasers();
                 currentState = State.Idle;
+                isAttacking = false;
                 break;
         }
     }
@@ -70,7 +74,7 @@ public class SeagulNado : MonoBehaviour
         if (isAttacking == false)
         {
             isAttacking = true;
-            yield return new WaitForSeconds(Random.Range(1, 5));
+            yield return new WaitForSeconds(Random.Range(3, 7));
 
             int randomState = Random.Range(0, System.Enum.GetValues(typeof(State)).Length);
             currentState = (State)randomState;
