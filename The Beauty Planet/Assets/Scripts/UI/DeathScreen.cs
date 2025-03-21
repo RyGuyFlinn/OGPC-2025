@@ -5,10 +5,25 @@ using UnityEngine;
 public class DeathScreen : MonoBehaviour
 {
     public GameObject player;
+    public SeagulNado seagulNado;
+    public GameObject bossbar;
+    public GameObject boss;
+
+    private GameObject[] enemies;
 
     void Start()
     {
         Time.timeScale = 0;
+        seagulNado.isFighting = false;
+        boss.SetActive(false);
+        bossbar.SetActive(false);
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i].gameObject);
+        }
     }
 
     public void Respawn()

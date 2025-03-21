@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
 
     //Gets HealthBar Script
     public Healthbar healthBar;
@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     //Takes health away
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

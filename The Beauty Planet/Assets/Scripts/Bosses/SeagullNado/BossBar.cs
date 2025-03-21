@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossBar : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class BossBar : MonoBehaviour
             }
             else if (stage == 2)
             {
-                Destroy(gameObject);
+                SceneManager.LoadScene("WishlistScreen");
             }
         }
     }
