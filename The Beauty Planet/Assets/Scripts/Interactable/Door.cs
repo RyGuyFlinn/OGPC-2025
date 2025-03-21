@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public GameObject hotbar;
+    public Sprite keycard;
+    public GameObject keycardItem;
+    public GameObject templateitem;
     public bool isOpen = true;
     public GameObject parent;
     public GameObject label;
@@ -27,7 +31,13 @@ public class Door : MonoBehaviour
         {
             if (player != null)
             {
-                isOpen = !isOpen;
+                if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
+                {
+                    isOpen = !isOpen;
+
+                    hotbar.GetComponent<hotbar>().SubItem(keycardItem);
+                    hotbar.GetComponent<hotbar>().AddItem(templateitem, null);
+                }
             }
         }
     }
@@ -36,7 +46,10 @@ public class Door : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            label.SetActive(true);
+            if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
+            {
+                label.SetActive(true);
+            }
             player = collider.gameObject;
         }
     }
@@ -45,7 +58,10 @@ public class Door : MonoBehaviour
         if (collider.tag == "Player")
         {
             player = null;
-            label.SetActive(false);
+            if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
+            {
+                label.SetActive(false);
+            }
         }
     }
 }
