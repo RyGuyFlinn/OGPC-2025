@@ -13,17 +13,17 @@ public class DeathScreen : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
-        seagulNado.isFighting = false;
-        boss.SetActive(false);
-        bossbar.SetActive(false);
-
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (int i = 0; i < enemies.Length; i++)
         {
             Destroy(enemies[i].gameObject);
         }
+
+        Time.timeScale = 0;
+        seagulNado.isFighting = false;
+        boss.SetActive(false);
+        bossbar.SetActive(false);
     }
 
     public void Respawn()

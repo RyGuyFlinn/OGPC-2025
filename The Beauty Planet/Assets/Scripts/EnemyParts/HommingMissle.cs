@@ -24,4 +24,14 @@ public class HommingMissle : MonoBehaviour
         float oreantation = Mathf.Rad2Deg * Mathf.Atan2(obj.position.y - playerpos.y ,transform.position.x - playerpos.x);
         transform.rotation = Quaternion.Euler(0, 0, oreantation + 180);
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
+            Destroy(this.gameObject);
+        }
+    }
+
 }
