@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health <= 0)
         {
+            GetComponent<EnemyDropSystem>().DropItems();
             Destroy(this.gameObject);
         }
     }

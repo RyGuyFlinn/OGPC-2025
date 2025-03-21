@@ -9,6 +9,7 @@ public class IneractionItem : MonoBehaviour
     public Sprite icon;
     public string description;
     public GameObject prefab;
+    public bool isInteractable;
     public bool hasHoldingItem;
     public GameObject holdingItem;
 

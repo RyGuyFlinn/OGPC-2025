@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2713526090569698323}
   - component: {fileID: 6974113885350814157}
   - component: {fileID: 3582171537589462521}
+  - component: {fileID: -7021440355903057182}
   m_Layer: 0
   m_Name: PlasmaTurret
   m_TagString: Enemy
@@ -146,6 +147,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3171844, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-7021440355903057182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745044324627370124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e780467e6f928418ec9cb39bc8c41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAmount: 1
+  drops:
+  - {fileID: 7118629333224144203, guid: 8c3048be5a96d6449bc0656da3868bfd, type: 3}
+  - {fileID: 6141651947484496352, guid: 9ec07a3b97ed2e24195781cd24122a3e, type: 3}
 --- !u!1001 &8281084701353721605
 PrefabInstance:
   m_ObjectHideFlags: 0
