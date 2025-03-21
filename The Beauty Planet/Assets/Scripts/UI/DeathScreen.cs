@@ -30,7 +30,7 @@ public class DeathScreen : MonoBehaviour
     {
         player.gameObject.GetComponent<PlayerHealth>().resetHealth();
         player.gameObject.GetComponent<PlayerOxygen>().resetOxegen();
-        player.transform.position = new Vector2(0, 0);
+        player.transform.position = new Vector2(204, 64);
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }
