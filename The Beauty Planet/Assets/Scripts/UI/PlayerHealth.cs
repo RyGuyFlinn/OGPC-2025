@@ -82,6 +82,12 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(hurt());
     }
 
+    public void RaiseHealth(float amount)
+    {
+        currentHealth += amount;
+        healthBar.SetHealth(currentHealth);
+    }
+
     public void resetHealth()
     {
         currentHealth = maxHealth;

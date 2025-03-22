@@ -9,19 +9,8 @@ public class IneractionItem : MonoBehaviour
     public Sprite icon;
     public string description;
     public GameObject prefab;
-    public bool isInteractable;
+    public int HealAmount;
+    public int OxygenAmount;
     public bool hasHoldingItem;
     public GameObject holdingItem;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

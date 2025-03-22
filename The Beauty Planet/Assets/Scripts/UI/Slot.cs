@@ -20,6 +20,10 @@ public class Slot : MonoBehaviour
 
     public TextMeshProUGUI quantityLabel;
     public int quantity = 0;
+
+    public float HealAmount;
+    public int OxygenAmount;
+
     public string item_name;
 
     void Update()
@@ -52,11 +56,24 @@ public class Slot : MonoBehaviour
         if (selected == false)
         {
             GetComponent<Image>().sprite = unSelected;
-            
         }
         else
         {
             GetComponent<Image>().sprite = Selected;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (HealAmount > 0)
+            {
+                GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
+                RemoveItem();
+            }
+            if (OxygenAmount > 0)
+            {
+                GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
+                RemoveItem();
+            }
         }
     }
 
@@ -72,6 +89,10 @@ public class Slot : MonoBehaviour
         quantity += 1;
 
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+
+        HealAmount = ItemToAdd.GetComponent<IneractionItem>().HealAmount;
+        OxygenAmount = ItemToAdd.GetComponent<IneractionItem>().OxygenAmount;
+
         itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
         itemToDrop.SetActive(false);
 
@@ -94,6 +115,8 @@ public class Slot : MonoBehaviour
            
             quantity = 0;
             currentItem = null;
+            HealAmount = 0;
+            OxygenAmount = 0;
             has_item = false;
             texture.sprite = null;
             hasHoldingItem = false;
