@@ -23,12 +23,20 @@ public class PlayerOxygen : MonoBehaviour
             while (true)
             {
                 if (currentOxygen < 0)
-            {
-                currentOxygen = 0;
-            }
+                {   
+                    currentOxygen = 0;
+                }
 
-                yield return new WaitForSeconds(deprecationMultiplayer);
-                LoseOxygen(Oxygenamount);
+                if (transform.position.x > 170)
+                {
+                    yield return new WaitForSeconds(0.5f);
+                    resetOxegen();
+                }
+                else
+                {
+                    yield return new WaitForSeconds(deprecationMultiplayer);
+                    LoseOxygen(Oxygenamount);
+                }
 
             }
         
