@@ -60,21 +60,21 @@ public class Slot : MonoBehaviour
         else
         {
             GetComponent<Image>().sprite = Selected;
-        }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (HealAmount > 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
-                RemoveItem();
+                if (HealAmount > 0)
+                {
+                    GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
+                    RemoveItem();
+                }
+                if (OxygenAmount > 0)
+                {
+                    GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
+                    RemoveItem();
+                }
             }
-            if (OxygenAmount > 0)
-            {
-                GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
-                RemoveItem();
-            }
-        }
+        } 
     }
 
     public void AddItem(GameObject ItemToAdd)

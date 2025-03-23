@@ -453,6 +453,14 @@ PrefabInstance:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 6687444281306709014}
+    - target: {fileID: 8667835252424265716, guid: b7d0d53c8215d104190a6ed5374534ec, type: 3}
+      propertyPath: MaxStack
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667835252424265716, guid: b7d0d53c8215d104190a6ed5374534ec, type: 3}
+      propertyPath: HealAmount
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8720578534820676625, guid: b7d0d53c8215d104190a6ed5374534ec, type: 3}
       propertyPath: m_Name
       value: Item

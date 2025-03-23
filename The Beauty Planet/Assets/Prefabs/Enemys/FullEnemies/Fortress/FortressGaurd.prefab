@@ -249,9 +249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAmount: 1
   drops:
-  - {fileID: 7118629333224144203, guid: 8c3048be5a96d6449bc0656da3868bfd, type: 3}
-  - {fileID: 6141651947484496352, guid: 9ec07a3b97ed2e24195781cd24122a3e, type: 3}
   - {fileID: 2437070919529004043, guid: 4d5c7a7916cecb441a067bbb7ad49450, type: 3}
+  dropChance: 35
 --- !u!1001 &5337940371032466451
 PrefabInstance:
   m_ObjectHideFlags: 0

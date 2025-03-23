@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3173323f71d5b409857bc2d630a2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Fiber
+  itemName: Cyano-Fiber
   MaxStack: 16
   icon: {fileID: 21300000, guid: 74d7490146a1d514caeff842210db7da, type: 3}
   description: High in Fiber!
   prefab: {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
+  HealAmount: 0
+  OxygenAmount: 0
   hasHoldingItem: 0
   holdingItem: {fileID: 0}
