@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
     Animator animator;
+    AudioSource audio;
 
     float horizontal;
     float vertical;
@@ -18,10 +19,15 @@ public class PlayerController : MonoBehaviour
     public GameObject hotbar;
     private GameObject itemToDrop;
 
+    public AudioClip itemPickup;
+    public AudioClip itemDrop;
+    public AudioClip walk;
+
     void Start ()
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -54,6 +60,10 @@ public class PlayerController : MonoBehaviour
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
     {
         hotbar.GetComponent<hotbar>().AddItem(ItemToAdd, ItemParent.gameObject);
+
+        //play audio clip
+        audio.clip = itemPickup;
+        audio.Play();
     }
 
     public void destroyItem(GameObject ItemParent)
@@ -67,6 +77,10 @@ public class PlayerController : MonoBehaviour
         {
             itemToDrop = Instantiate(dropItem, new Vector2(this.transform.position.x, this.transform.position.y + 1), this.transform.rotation);
             itemToDrop.SetActive(true);
+
+            //play audio clip
+            audio.clip = itemDrop;
+            audio.Play();
         }
     }
 }

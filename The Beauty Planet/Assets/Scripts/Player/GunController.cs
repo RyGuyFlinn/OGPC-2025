@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    AudioSource audio;
+
     public GameObject projectile;
     public GameObject player;
     public Transform muzzle;
+    public AudioClip blastSound;
 
     public float fireRate = 0.3f;
     private float nextFire;
@@ -18,6 +22,7 @@ public class GunController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,7 +39,7 @@ public class GunController : MonoBehaviour
             sprite.flipY = true;
             offset.x = -Mathf.Abs(offset.x);
         }
-        else
+        else if (Mathf.Abs(Input.mousePosition.x - Camera.main.WorldToScreenPoint(transform.position).x) > 50)
         {
             sprite.flipY = false;
             offset.x = Mathf.Abs(offset.x);
@@ -45,6 +50,10 @@ public class GunController : MonoBehaviour
             nextFire = Time.time + fireRate;
 
             Instantiate (projectile, muzzle.position, transform.rotation);
+
+            //play blast sound
+            audio.clip = blastSound;
+            audio.Play();
         }
     }
 }
