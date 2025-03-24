@@ -19,7 +19,7 @@ public class DrillScript : MonoBehaviour
     public Sprite Battery;
     public Animator Animator;
     public Transform Orespawn;
-    public Transform enemySpawn;
+    public Transform[] enemySpawn;
 
     private float piece1;
     private float piece2;
@@ -135,8 +135,9 @@ public class DrillScript : MonoBehaviour
     {
         //spawn enemy at a random point along circumfrence of circle
         float angleRadians = Random.Range(0, 360) * Mathf.Deg2Rad;
-        Vector3 enemyPosition = new Vector3(enemySpawn.transform.position.x + spawnrange * angleRadians,
-        enemySpawn.transform.position.y + spawnrange * angleRadians,
+        int randomSpawn = Random.Range(0, enemySpawn.Length);
+        Vector3 enemyPosition = new Vector3(enemySpawn[randomSpawn].position.x + spawnrange * angleRadians,
+        enemySpawn[randomSpawn].position.y + spawnrange * angleRadians,
         0);
         Instantiate(enemy, enemyPosition, enemy.transform.rotation);
 

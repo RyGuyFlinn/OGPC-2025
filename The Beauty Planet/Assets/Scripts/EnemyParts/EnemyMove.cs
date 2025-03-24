@@ -8,7 +8,7 @@ public class EnemyMove : MonoBehaviour
     private Transform target;
     public float speed;
     public bool upAndDown;
-    private Animator animator;
+    //private Animator animator;
     private SpriteRenderer renderer;
 
     UnityEngine.AI.NavMeshAgent agent;
@@ -19,7 +19,7 @@ public class EnemyMove : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
     }
 
@@ -36,7 +36,7 @@ public class EnemyMove : MonoBehaviour
             speed = GetComponent<Rigidbody2D>().velocity.x;
         }
 
-        animator.SetFloat("speed", speed);
+        //animator.SetFloat("speed", speed);
         if (speed < 0)
         {
             renderer.flipX = true;

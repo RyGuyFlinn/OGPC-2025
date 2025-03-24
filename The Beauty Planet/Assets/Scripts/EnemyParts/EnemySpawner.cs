@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(120);
         active = true;
     }
 }
