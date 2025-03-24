@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    public Shake shake;
     public Sprite baseSprite;
     public Sprite warnSprite;
     public Sprite shootSprite;
@@ -37,6 +38,7 @@ public class Laser : MonoBehaviour
 
         yield return new WaitForSeconds(warnTime);
 
+        shake.start = true;
         sprite.sprite = shootSprite;
         laser.gameObject.GetComponent<LaserBase>().canHurt = true;
         laser.gameObject.GetComponent<SpriteRenderer>().sprite = laserFireSprite;

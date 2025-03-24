@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BossBar : MonoBehaviour
 {
+    public Shake shake;
     public int StageOneMaxHealth = 100;
     public int StageTwoMaxHealth = 100;
     public int currentHealth;
@@ -34,6 +35,7 @@ public class BossBar : MonoBehaviour
                 seagulNado.currentStage = 2;
                 currentHealth = StageTwoMaxHealth;
                 healthBar.SetMaxHealth(StageTwoMaxHealth);
+                shake.start = true;
             }
             else if (stage == 2)
             {
