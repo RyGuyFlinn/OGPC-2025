@@ -215,6 +215,9 @@ MonoBehaviour:
   break_3: {fileID: 8523929193200808075}
   break_4: {fileID: 3708372793193107156}
   pot: {fileID: 6566542835563999064}
+  items:
+  - {fileID: 6687444281306709014, guid: fd73e2f1fe8d312418486734fc98cee7, type: 3}
+  - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
 --- !u!1 &3708372793193107156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,6 +5260,7 @@ MonoBehaviour:
   break_3: {fileID: 0}
   break_4: {fileID: 0}
   pot: {fileID: 0}
+  items: []
 --- !u!1 &7722053462892206668
 GameObject:
   m_ObjectHideFlags: 0

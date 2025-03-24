@@ -9,6 +9,7 @@ public class PotBreak : MonoBehaviour
     public GameObject break_3;
     public GameObject break_4;
     public GameObject pot;
+    public GameObject[] items;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,10 @@ public class PotBreak : MonoBehaviour
             
             pot.GetComponent<BoxCollider2D>().enabled = false;
             pot.GetComponent<SpriteRenderer>().enabled = false;
+
+            //spawn item
+            Instantiate(items[Random.Range(0, items.Length)], transform.position, transform.rotation);
+
             StartCoroutine(Wait());
     }
     }

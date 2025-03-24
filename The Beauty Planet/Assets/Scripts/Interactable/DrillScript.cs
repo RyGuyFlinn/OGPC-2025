@@ -8,21 +8,26 @@ public class DrillScript : MonoBehaviour
 {
     public GameObject label;
     public GameObject hotbar;
-    public Sprite alientech;
     public GameObject alienitem;
-    public Sprite Battery;
     public GameObject Batteryitem;
-    private float piece1;
-    private float piece2;
     public GameObject part1visual;
     public GameObject part2visual;
-    public bool enter = false;
-    public Transform Metalorespawn;
-    public GameObject Metalore;
-    public float spawnrange;
+    public GameObject[] Ore;
+    public GameObject enemy;
+
+    public Sprite alientech;
+    public Sprite Battery;
     public Animator Animator;
+    public Transform Orespawn;
+    public Transform enemySpawn;
+
+    private float piece1;
+    private float piece2;
+    public bool enter = false;
+    public float spawnrange;
     public float waitseconds;
     private float pause = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,14 +127,25 @@ public class DrillScript : MonoBehaviour
         {
             pause = 1;
             yield return new WaitForSeconds(waitseconds);
-Animator.SetBool("Interact", false);
+            Animator.SetBool("Interact", false);
             pause = 0;
         }
         }
     IEnumerator Spawnore()
-    {   var oreposition = new Vector3(Metalorespawn.position.x + Random.Range(-spawnrange, spawnrange), Metalorespawn.position.y + Random.Range(-spawnrange,spawnrange), 0);
+    {
+        //spawn enemy at a random point along circumfrence of circle
+        float angleRadians = Random.Range(0, 360) * Mathf.Deg2Rad;
+        Vector3 enemyPosition = new Vector3(enemySpawn.transform.position.x + spawnrange * angleRadians,
+        enemySpawn.transform.position.y + spawnrange * angleRadians,
+        0);
+        Instantiate(enemy, enemyPosition, enemy.transform.rotation);
+
+        //wait and then spawn ore
         yield return new WaitForSeconds(2);
-        Instantiate(Metalore, oreposition, Metalorespawn.rotation);
+        var oreposition = new Vector3(Orespawn.position.x + Random.Range(-spawnrange, spawnrange), 
+        Orespawn.position.y + Random.Range(-spawnrange,spawnrange), 
+        0);
+        Instantiate(Ore[Random.Range(0, Ore.Length)], oreposition, Orespawn.rotation);
     }
     
 }
