@@ -52,6 +52,10 @@ public class hotbar : MonoBehaviour
                 player.GetComponent<PlayerController>().destroyItem(ItemParent.gameObject);
             }
         }
+        else
+        {
+            player.gameObject.GetComponent<PlayerController>().FailSound();
+        }
         added_item = false;
     }
 
@@ -96,7 +100,11 @@ public class hotbar : MonoBehaviour
         int quantity = 0;
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].GetComponent<Slot>().texture.sprite == Item)
+            if (Item == null && slots[i].GetComponent<Slot>().texture.sprite == null)
+            {
+                quantity += 1;
+            }
+            else if (slots[i].GetComponent<Slot>().texture.sprite == Item)
             {
                 quantity += slots[i].GetComponent<Slot>().quantity;
             }

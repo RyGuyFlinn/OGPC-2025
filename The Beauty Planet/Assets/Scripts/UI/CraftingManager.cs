@@ -8,6 +8,7 @@ public class CraftingManager : MonoBehaviour
 {
     public GameObject hotbar;
     public GameObject selectedButton;
+    private GameObject player;
 
     public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ItemDescription;
@@ -19,6 +20,8 @@ public class CraftingManager : MonoBehaviour
     public TextMeshProUGUI slotOneQuantity;
     public TextMeshProUGUI slotTwoQuantity;
     public TextMeshProUGUI slotThreeQuantity;
+
+    public AudioClip craftSound;
 
     public int hasItem(Sprite Item, int quantity)
     {
@@ -48,9 +51,11 @@ public class CraftingManager : MonoBehaviour
             if (hotbar.GetComponent<hotbar>().HasItem(slotTwoTexture.sprite) >= int.Parse(slotTwoQuantity.text))
             {
                 Debug.Log("Craft");
-                // call function in the hotbar to Craft item
-                hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
 
+                //play craft sound
+                AudioSource playerAudio = player.gameObject.AddComponent<AudioSource>();
+                playerAudio.clip = craftSound;
+                playerAudio.Play();
 
                 // subtract the items from the player inventory
                 for (int i = 0; i < int.Parse(slotOneQuantity.text); i++)
@@ -62,12 +67,33 @@ public class CraftingManager : MonoBehaviour
                 {
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[1]);
                 }
+
+                if (hotbar.GetComponent<hotbar>().HasItem(null) == 0)
+                {
+                    player.GetComponent<PlayerController>().dropItem((selectedButton.GetComponent<CraftingButton>().Item).gameObject.GetComponent<IneractionItem>().prefab);
+                }
+                else
+                {
+                    hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
+                }
+                // call function in the hotbar to Craft item
+                
+
             }
+            else
+            {
+                player.gameObject.GetComponent<PlayerController>().FailSound();
+            }
+        }
+        else
+        {
+            player.gameObject.GetComponent<PlayerController>().FailSound();
         }
     }
 
     void Start()
     {
+        player = GameObject.Find("Player");
         SelectItem();
     }
 }

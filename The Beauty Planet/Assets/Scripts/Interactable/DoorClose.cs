@@ -12,6 +12,10 @@ public class DoorClose : MonoBehaviour
     {
         if (col.tag == "Player")
         {
+            //play slam sound
+            door.audio.clip = door.closeSound;
+            door.audio.Play();
+
             door.isOpen = false;
             boss.SetActive(true);
             bossbar.SetActive(true);

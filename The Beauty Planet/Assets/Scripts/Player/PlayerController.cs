@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     float horizontal;
     float vertical;
     private float distance;
+    private float walkSoundCooldown;
     
     public float acceleration = 20.0f;
     public float friction = 0.0f;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip itemPickup;
     public AudioClip itemDrop;
     public AudioClip walk;
+    public AudioClip failSound;
 
     void Start ()
     {
@@ -35,12 +37,25 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         distance = Mathf.Sqrt(horizontal*horizontal + vertical*vertical);
+
+        walkSoundCooldown += -1;
         if(distance == 0)
         {
             distance = 1;
         }
+        else
+        {
+            if (walkSoundCooldown <= 0)
+            {
+                //play walk sound and reset cooldown
+                walkSoundCooldown = Random.Range(20, 22);
+                audio.pitch = Random.Range(0.7f, 1.3f);
+                audio.clip = walk;
+                audio.Play();
+            }
+        }
 
-        body.velocity = new Vector2(horizontal / distance * runSpeed, vertical / distance * runSpeed);
+            body.velocity = new Vector2(horizontal / distance * runSpeed, vertical / distance * runSpeed);
         body.velocity = new Vector2(Mathf.Clamp(body.velocity.x, -runSpeed, runSpeed), Mathf.Clamp(body.velocity.y, -runSpeed, runSpeed));
         
         if (horizontal == 0)
@@ -82,5 +97,11 @@ public class PlayerController : MonoBehaviour
             audio.clip = itemDrop;
             audio.Play();
         }
+    }
+
+    public void FailSound()
+    {
+        audio.clip = failSound;
+        audio.Play();
     }
 }

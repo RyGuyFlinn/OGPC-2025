@@ -333,9 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAmount: 2
   drops:
-  - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
   - {fileID: 6687444281306709014, guid: fd73e2f1fe8d312418486734fc98cee7, type: 3}
-  dropChance: 30
+  dropChance: 20
 --- !u!82 &-5654626681740754460
 AudioSource:
   m_ObjectHideFlags: 0

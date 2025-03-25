@@ -14,6 +14,10 @@ public class Door : MonoBehaviour
 
     private GameObject player;
 
+    public AudioSource audio;
+    public AudioClip openSound;
+    public AudioClip closeSound;
+
     void Update()
     {
         parent.GetComponent<Animator>().SetBool("isOpen", isOpen);
@@ -33,6 +37,10 @@ public class Door : MonoBehaviour
             {
                 if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
                 {
+                    //play open sound
+                    audio.clip = openSound;
+                    audio.Play();
+
                     isOpen = !isOpen;
 
                     hotbar.GetComponent<hotbar>().SubItem(keycardItem);
