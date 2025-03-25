@@ -15017,9 +15017,8 @@ MonoBehaviour:
   pot: {fileID: 6566542835563999064}
   items:
   - {fileID: 6687444281306709014, guid: fd73e2f1fe8d312418486734fc98cee7, type: 3}
-  - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
-  - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
-  - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
+  - {fileID: 7118629333224144203, guid: 8c3048be5a96d6449bc0656da3868bfd, type: 3}
+  - {fileID: 7118629333224144203, guid: 8c3048be5a96d6449bc0656da3868bfd, type: 3}
   - {fileID: 4886025381067210092, guid: 82d8e24caeb48a440ac8c3c26b71f2a6, type: 3}
 --- !u!1 &9145927570495484193
 GameObject:

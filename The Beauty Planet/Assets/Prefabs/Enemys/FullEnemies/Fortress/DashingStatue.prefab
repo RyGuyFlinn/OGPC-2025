@@ -210,6 +210,7 @@ MonoBehaviour:
   spawnAmount: 1
   drops:
   - {fileID: 7118629333224144203, guid: 8c3048be5a96d6449bc0656da3868bfd, type: 3}
+  - {fileID: 1541721461114966658, guid: 7037ef228de5db6429d0cbeb69220f37, type: 3}
   dropChance: 75
 --- !u!82 &4698656126724989699
 AudioSource:

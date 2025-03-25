@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public int health;
 
     private GameObject player;
+    private GameObject seagullNado;
 
     public AudioClip hitSound;
     public AudioClip deathSound;
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        seagullNado = GameObject.Find("SeagullNado");
         player = GameObject.Find("Player");
         health = maxHealth;
         audio = GetComponent<AudioSource>();
@@ -31,7 +33,10 @@ public class EnemyHealth : MonoBehaviour
             playerAudio.clip = deathSound;
             playerAudio.Play();
 
-            GetComponent<EnemyDropSystem>().DropItems();
+            if (!(transform.position.x < 100 && Mathf.Abs(transform.position.y + 66) < 10))
+            {
+                GetComponent<EnemyDropSystem>().DropItems();
+            }
             Destroy(this.gameObject);
         }
 
@@ -45,6 +50,12 @@ public class EnemyHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         health -= damage;
+
+        if (GetComponent<EnemyDashMovement>() != null)
+        {
+            GetComponent<EnemyDashMovement>().dashing = true;
+            GetComponent<SpriteRenderer>().sprite = GetComponentInChildren<EnemyTouchActivate>().activeSprite;
+        }
 
         //play hit sound
         audio.clip = hitSound;
