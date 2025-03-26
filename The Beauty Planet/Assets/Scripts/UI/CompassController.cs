@@ -7,32 +7,32 @@ public class CompassController : MonoBehaviour
 {
     public Sprite[] directionSprites;
     public Sprite inShip;
-    public Sprite compassItem;
-    public hotbar hotbar;
+    //public Sprite compassItem;
+    //public hotbar hotbar;
     public GameObject target;
 
     public GameObject player;
-    public GameObject renderer;
-    private Image image;
+    public UnityEngine.UI.Image image;
 
     void Start()
     {
-        image = renderer.gameObject.GetComponent<Image>();
-        player = GameObject.Find("Player");
+        image = GetComponent<UnityEngine.UI.Image>();
+        //player = GameObject.Find("Player");
     }
     void FixedUpdate()
     {
         //check for and only display UI when compass is in player inventory
-        renderer.SetActive(hotbar.HasItem(compassItem) > 0);
+        //renderer.SetActive(hotbar.HasItem(compassItem) > 0);
         
         if (player.transform.position.x > 170)
         {
            image.sprite = inShip;
+            Debug.Log("In Ship");
         }
         else
         {
             int direction = (int)(Mathf.Round((Vector3.Angle(new Vector3(0, 1, 0), target.transform.position - player.transform.position)) / 22.5f));
-            if (target.transform.position.x > player.transform.position.x)
+            if (target.transform.position.x < player.transform.position.x)
             {
                 image.sprite = directionSprites[(8 - direction + 8) % 16];
             }
@@ -40,6 +40,8 @@ public class CompassController : MonoBehaviour
             {
                 image.sprite = directionSprites[direction];
             }
+
+            Debug.Log(direction);
         }
     }
 }
