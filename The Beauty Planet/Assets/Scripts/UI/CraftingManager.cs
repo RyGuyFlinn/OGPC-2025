@@ -23,6 +23,12 @@ public class CraftingManager : MonoBehaviour
 
     public AudioClip craftSound;
 
+    void Start()
+    {
+        player = GameObject.Find("Player");
+        SelectItem();
+    }
+    
     public int hasItem(Sprite Item, int quantity)
     {
         int ItemQuantity = hotbar.GetComponent<hotbar>().HasItem(Item);
@@ -58,12 +64,12 @@ public class CraftingManager : MonoBehaviour
                 playerAudio.Play();
 
                 // subtract the items from the player inventory
-                for (int i = 0; i < int.Parse(slotOneQuantity.text); i++)
+                for (int i = 0; i <= int.Parse(slotOneQuantity.text); i++)
                 {
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[0]);
                 }
 
-                for (int i = 0; i < int.Parse(slotTwoQuantity.text); i++)
+                for (int i = 0; i <= int.Parse(slotTwoQuantity.text); i++)
                 {
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[1]);
                 }
@@ -77,8 +83,6 @@ public class CraftingManager : MonoBehaviour
                 {
                     hotbar.GetComponent<hotbar>().AddItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject, null);
                 }
-                // call function in the hotbar to Craft item
-                
 
             }
             else
@@ -92,9 +96,5 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        player = GameObject.Find("Player");
-        SelectItem();
-    }
+    
 }

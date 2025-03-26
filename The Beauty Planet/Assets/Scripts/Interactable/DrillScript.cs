@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
+
 public class DrillScript : MonoBehaviour
 {
     public GameObject label;
@@ -21,8 +22,8 @@ public class DrillScript : MonoBehaviour
     public Transform Orespawn;
     public Transform[] enemySpawn;
 
-    private float piece1;
-    private float piece2;
+    private bool piece1;
+    private bool piece2;
     public bool enter = false;
     public float spawnrange;
     public float waitseconds;
@@ -32,8 +33,8 @@ public class DrillScript : MonoBehaviour
     void Start()
     {
         label.SetActive(false);
-        piece1 = 0;
-        piece2 = 0;
+        piece1 = false;
+        piece2 = false;
     }
 
     // Update is called once per frame
@@ -41,29 +42,29 @@ public class DrillScript : MonoBehaviour
     {
         if (enter == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
-                if (piece1 == 0)
+                if (piece1 == false)
                 {
                     if (hotbar.GetComponent<hotbar>().HasItem(alientech) >= 1)
                     {
+                        piece1 = true;
                         hotbar.GetComponent<hotbar>().SubItem(alienitem);
-                        piece1 = 1;
                         part1visual.SetActive(false);
                     }
                 }
-                if (piece2 == 0)
+                if (piece2 == false)
                 {
                     if (hotbar.GetComponent<hotbar>().HasItem(Battery) >= 1)
                     {
+                        piece2 = true;
                         part2visual.SetActive(false);
                         hotbar.GetComponent<hotbar>().SubItem(Batteryitem);
-                        piece2 = 1;
                     }
                 }
 
             }
-            if (piece1 + piece2 == 2)
+            if (piece1 && piece2)
             {
                 if (pause == 0)
                 {
@@ -95,11 +96,11 @@ public class DrillScript : MonoBehaviour
         if (collider.tag == "Player")
         {enter = true;
 
-            if (piece1 == 0)
+            if (piece1 == false)
             {
                 part1visual.SetActive(true);
             }
-            if (piece2 == 0)
+            if (piece2 == false)
             {
                 part2visual.SetActive(true);
             }
@@ -113,16 +114,15 @@ public class DrillScript : MonoBehaviour
             enter = false;
             part2visual.SetActive(false);
             part1visual.SetActive(false);
-            if (piece1 + piece2 == 2)
+
+            if (piece1 && piece2)
             {
                 label.SetActive(false);
-
-
             }
         }
     }
-        IEnumerator wait()
-        {
+    IEnumerator wait()
+    {
         if (pause == 0)
         {
             pause = 1;
@@ -130,7 +130,8 @@ public class DrillScript : MonoBehaviour
             Animator.SetBool("Interact", false);
             pause = 0;
         }
-        }
+    }
+        
     IEnumerator Spawnore()
     {
         //spawn enemy at a random point along circumfrence of circle
@@ -144,8 +145,7 @@ public class DrillScript : MonoBehaviour
         //wait and then spawn ore
         yield return new WaitForSeconds(2);
         var oreposition = new Vector3(Orespawn.position.x + Random.Range(-spawnrange, spawnrange), 
-        Orespawn.position.y + Random.Range(-spawnrange,spawnrange), 
-        0);
+        Orespawn.position.y + Random.Range(-spawnrange,spawnrange), 0);
         Instantiate(Ore[Random.Range(0, Ore.Length)], oreposition, Orespawn.rotation);
     }
     
