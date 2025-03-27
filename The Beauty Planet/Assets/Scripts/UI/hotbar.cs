@@ -21,6 +21,23 @@ public class hotbar : MonoBehaviour
         {
             if (added_item == false)
             {
+                if (slots[i].GetComponent<Slot>().texture.sprite == ItemToAdd.GetComponent<IneractionItem>().icon)
+                {
+                    if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
+                        {
+                        slots[i].GetComponent<Slot>().itemToDrop = ItemToAdd.GetComponent<IneractionItem>().prefab;
+                        Debug.Log(ItemToAdd.GetComponent<IneractionItem>().prefab);
+                        slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
+                        added_item = true;
+                    }
+                }
+            }   
+        }
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (added_item == false)
+            {
                 if (slots[i].GetComponent<Slot>().has_item == false)
                 {
                     slots[i].GetComponent<Slot>().itemToDrop = ItemToAdd.GetComponent<IneractionItem>().prefab;
@@ -28,23 +45,9 @@ public class hotbar : MonoBehaviour
                     slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
                     added_item = true;
                 }
-                else
-                {
-                    if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
-                    {
-
-                        if (slots[i].GetComponent<Slot>().texture.sprite == ItemToAdd.GetComponent<IneractionItem>().icon)
-                            if (slots[i].GetComponent<Slot>().quantity < ItemToAdd.GetComponent<IneractionItem>().MaxStack)
-                                {
-                                slots[i].GetComponent<Slot>().itemToDrop = ItemToAdd.GetComponent<IneractionItem>().prefab;
-                                Debug.Log(ItemToAdd.GetComponent<IneractionItem>().prefab);
-                                slots[i].GetComponent<Slot>().AddItem(ItemToAdd);
-                                added_item = true;
-                            }
-                    }
-                }
-            }   
+            }
         }
+
         if (added_item == true)
         {
             if (ItemParent != null)
@@ -110,6 +113,27 @@ public class hotbar : MonoBehaviour
             }
         }
         return quantity;
+    }
+
+    public bool HasEmptySlot()
+    {
+        int quantity = 0;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].GetComponent<Slot>().texture.sprite == null)
+            {
+                quantity += 1;
+            }
+        }
+
+        if (quantity >= 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // Update is called once per frame

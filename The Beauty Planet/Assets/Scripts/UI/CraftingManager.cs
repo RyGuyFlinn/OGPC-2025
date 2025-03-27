@@ -56,26 +56,23 @@ public class CraftingManager : MonoBehaviour
         {
             if (hotbar.GetComponent<hotbar>().HasItem(slotTwoTexture.sprite) >= int.Parse(slotTwoQuantity.text))
             {
-                Debug.Log("Craft");
-
                 //play craft sound
                 AudioSource playerAudio = player.gameObject.AddComponent<AudioSource>();
                 playerAudio.clip = craftSound;
                 playerAudio.Play();
 
                 // subtract the items from the player inventory
-                for (int i = 0; i <= int.Parse(slotOneQuantity.text); i++)
+                for (int i = 1; i <= int.Parse(slotOneQuantity.text); i++)
                 {
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[0]);
                 }
 
-                for (int i = 0; i <= int.Parse(slotTwoQuantity.text); i++)
+                for (int i = 1; i <= int.Parse(slotTwoQuantity.text); i++)
                 {
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[1]);
                 }
 
-                if (hotbar.GetComponent<hotbar>().HasItem(null) == 0 
-                && hotbar.GetComponent<hotbar>().HasItem(selectedButton.GetComponent<CraftingButton>().craftingRecepie[2]) == 0)
+                if (hotbar.GetComponent<hotbar>().HasEmptySlot() == false && hotbar.GetComponent<hotbar>().HasItem(selectedButton.GetComponent<CraftingButton>().craftingRecepie[2]) == 0)
                 {
                     player.GetComponent<PlayerController>().dropItem((selectedButton.GetComponent<CraftingButton>().Item).gameObject.GetComponent<IneractionItem>().prefab);
                 }
@@ -94,7 +91,5 @@ public class CraftingManager : MonoBehaviour
         {
             player.gameObject.GetComponent<PlayerController>().FailSound();
         }
-    }
-
-    
+    }    
 }
