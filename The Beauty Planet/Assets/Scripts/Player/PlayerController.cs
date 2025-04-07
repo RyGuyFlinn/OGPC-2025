@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
-    Animator animator;
+    public Animator animator;
     AudioSource audio;
 
     float horizontal;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip walk;
     public AudioClip failSound;
 
+    public bool isSwiming = false;
+
     void Start ()
     {
         body = GetComponent<Rigidbody2D>();
@@ -33,7 +35,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {  
+    {
+        animator.SetBool("IsSwimming", isSwiming);
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         distance = Mathf.Sqrt(horizontal*horizontal + vertical*vertical);

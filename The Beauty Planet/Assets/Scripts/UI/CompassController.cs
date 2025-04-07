@@ -40,8 +40,6 @@ public class CompassController : MonoBehaviour
             {
                 image.sprite = directionSprites[direction];
             }
-
-            Debug.Log(direction);
         }
     }
 }
