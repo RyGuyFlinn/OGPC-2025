@@ -9,6 +9,7 @@ public class Water : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             collider.gameObject.GetComponent<PlayerController>().isSwiming = true;
+            Debug.Log("enter");
         }
     }
     void OnTriggerExit2D(Collider2D collider)
@@ -16,6 +17,7 @@ public class Water : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             collider.gameObject.GetComponent<PlayerController>().isSwiming = false;
+            Debug.Log("exit");
         }
     }
 }
