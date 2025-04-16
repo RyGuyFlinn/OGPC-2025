@@ -13,7 +13,7 @@ public class LightningSpawn : MonoBehaviour
     public float xmin;
     public float ymin;
 
-    public bool canHurt = true;
+    public bool canHurt;
 
     public PlayerHealth health;
 
@@ -32,20 +32,24 @@ public class LightningSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canHurt = false;
         xmax = max1.position.x;
         ymax = max1.position.y;
         xmin = max2.position.x;
         ymin = max2.position.y;
-        time += Time.deltaTime / Random.Range(2, 3.5f);
+        time += Time.deltaTime / Random.Range(1, 10f);
         itime = (int)time;
         if (prevtime != itime)
         {
             animation.Play("Lightnigh Spawn", 0, 0.25f);
             var position = new Vector3(Random.Range(xmax, xmin), Random.Range(ymax, ymin), 0);
+            
             transform.position = position;
+            
         }
         prevtime = itime;
-
+        
+        
 
     }
     void OnTriggerEnter2D(Collider2D collide)

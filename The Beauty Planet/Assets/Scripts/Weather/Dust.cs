@@ -7,6 +7,9 @@ public class Dust : MonoBehaviour
     // Start is called before the first frame update
     private int on = 0;
     public GameObject Storm;
+ 
+    public GameObject player;
+
     void Start()
     {
         
@@ -15,19 +18,23 @@ public class Dust : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (on == 0)
-            {
-                Storm.SetActive(true);
-                on = 1;
-            }
-            else if (on == 1)
-            {
-                Storm.SetActive(false);
-                on = 0;
-            }
+         
+           
 
+        
+    }
+    void OnTriggerEnter2D(Collider2D collide){
+        if (collide.tag == "Player"){
+            Debug.Log("In plains!");
+        
+        Storm.SetActive(true);
+        }
+    }
+    void OnTriggerExit2D(Collider2D collide){
+        if (collide.tag == "Player"){
+            Debug.Log("In plains!");
+        
+        Storm.SetActive(false);
         }
     }
 }
