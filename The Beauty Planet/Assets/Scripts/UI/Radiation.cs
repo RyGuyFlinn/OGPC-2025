@@ -67,6 +67,7 @@ public class Radiation : MonoBehaviour
     {
         if (collide.tag == "Player")
         {
+            locks = 0;
             time = 0;
             prevtime = 0;
             Color imagecolor = Warning.GetComponent<Image>().color;
