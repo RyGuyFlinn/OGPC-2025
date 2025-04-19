@@ -10,19 +10,41 @@ public class Radiation : MonoBehaviour
     public PlayerHealth health;
     public GameObject Warning;
     public float flash;
-
+    public float lvl = 10;
+    public float randomlvl;
     public int locks = 0;
     public int itime;
     // Start is called before the first frame update
     void Start()
     {
-        
+        flash = 0.5f * (lvl / 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            
+            randomlvl = Random.Range(0, 3);
+            if (randomlvl == 0)
+            {
+                lvl = 60;
+            }
+            if (randomlvl == 1)
+            {
+                lvl = 30;
+            }
+            if (randomlvl == 2)
+            {
+                lvl = 10;
+            }
+            flash = 0.5f * (lvl / 10f);
+        }
     }
     void OnTriggerStay2D(Collider2D collide)
     {
@@ -35,14 +57,14 @@ public class Radiation : MonoBehaviour
 
             if (prevtime != itime)
             {
-                if (itime >= 10)
+                if (itime >= lvl)
                 {
                     health.TakeDamage(10);
 
                    
                     
                 }
-                if (itime < 10)
+                if (itime < lvl)
                 {
                     flash -= 0.05f;
                 }
@@ -51,11 +73,11 @@ public class Radiation : MonoBehaviour
             //Keeps the flashing consistent
             if (locks == 0)
             {
-                if (itime < 10) { 
+                if (itime < lvl) { 
                 StartCoroutine(Radiationwarn());
             }
             }
-            if (itime >= 10) { 
+            if (itime >= lvl) { 
             Warning.SetActive(true);
             }
         }
@@ -73,7 +95,7 @@ public class Radiation : MonoBehaviour
             Color imagecolor = Warning.GetComponent<Image>().color;
   
             Warning.SetActive(false);
-            flash = 0.5f;
+            flash = 0.5f * (lvl / 10f);
             itime = 0;
             Debug.Log("Exit");
         }

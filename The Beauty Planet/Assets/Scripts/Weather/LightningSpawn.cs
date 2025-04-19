@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class LightningSpawn : MonoBehaviour
@@ -14,7 +15,10 @@ public class LightningSpawn : MonoBehaviour
     public float ymin;
 
     public bool canHurt;
-
+    //Safelock stops lightning from doing damage multiple times in a row
+    private bool safelock = false;
+    //Pause makes a random time
+    public float pause;
     public PlayerHealth health;
 
     private float time;
@@ -25,7 +29,7 @@ public class LightningSpawn : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   pause = Random.Range(3, 13f);
         animation = GetComponent<Animator>();
     }
 
@@ -37,26 +41,30 @@ public class LightningSpawn : MonoBehaviour
         ymax = max1.position.y;
         xmin = max2.position.x;
         ymin = max2.position.y;
-        time += Time.deltaTime / Random.Range(1, 10f);
-        itime = (int)time;
-        if (prevtime != itime)
+        time += Time.deltaTime;
+        
+        //itime = (int)time;
+        if (pause <= time)
         {
             animation.Play("Lightnigh Spawn", 0, 0.25f);
             var position = new Vector3(Random.Range(xmax, xmin), Random.Range(ymax, ymin), 0);
             
             transform.position = position;
-            
+            safelock = false;
+            pause = Random.Range(3, 13f);
+            time = 0;
         }
-        prevtime = itime;
+        //prevtime = itime;
         
         
 
     }
-    void OnTriggerEnter2D(Collider2D collide)
+    void OnTriggerStay2D(Collider2D collide)
     {
-        if (collide.tag == "Player" && canHurt == true)
+        if (collide.tag == "Player" && canHurt == true && safelock == false)
         {
             health.TakeDamage(30);
+            safelock = true;
         }
     }
 }
