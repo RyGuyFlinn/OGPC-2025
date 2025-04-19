@@ -27,6 +27,7 @@ public class Radiation : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //Sets to a different LVL whenever the player enters the biome, will change.
         if (collision.tag == "Player")
         {
             
@@ -53,8 +54,8 @@ public class Radiation : MonoBehaviour
             time += Time.deltaTime;
              itime = (int)time;
             
-            //Debug.Log(itime);
-
+           
+            //Timer for the flashing
             if (prevtime != itime)
             {
                 if (itime >= lvl)
@@ -77,8 +78,12 @@ public class Radiation : MonoBehaviour
                 StartCoroutine(Radiationwarn());
             }
             }
+            //Sets the symbol to red and no longer flashing
             if (itime >= lvl) { 
+
             Warning.SetActive(true);
+                Warning.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+
             }
         }
        
@@ -93,7 +98,7 @@ public class Radiation : MonoBehaviour
             time = 0;
             prevtime = 0;
             Color imagecolor = Warning.GetComponent<Image>().color;
-  
+            Warning.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             Warning.SetActive(false);
             flash = 0.5f * (lvl / 10f);
             itime = 0;

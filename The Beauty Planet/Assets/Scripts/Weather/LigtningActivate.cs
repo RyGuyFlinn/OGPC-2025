@@ -21,6 +21,7 @@ public class LigtningActivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Sets the level to random whether in or out of biome
         time += Time.deltaTime;
 
         if (inbiome == true) { 
@@ -44,6 +45,7 @@ public class LigtningActivate : MonoBehaviour
 
         }
     }
+    //Sets all the lightning on and off when player enters biome.
     void OnTriggerEnter2D(Collider2D collide){
         if (collide.tag == "Player"){
           

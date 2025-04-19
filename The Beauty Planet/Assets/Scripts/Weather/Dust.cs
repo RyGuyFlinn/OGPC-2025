@@ -19,6 +19,7 @@ public class Dust : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Random timer which switches the storm on and off.
         time += Time.deltaTime;
          if (InBiome == true)
         {
@@ -42,6 +43,7 @@ public class Dust : MonoBehaviour
 
         
     }
+    //Activates and deactivates dust when player is in biome.
     void OnTriggerEnter2D(Collider2D collide){
         if (collide.tag == "Player"){
             InBiome = true;

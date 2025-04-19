@@ -23,6 +23,7 @@ public class RadiationActivate : MonoBehaviour
 
 
     }
+    //Activates radiation when in biome
     void OnTriggerEnter2D(Collider2D collide)
     {
         if (collide.tag == "Player")

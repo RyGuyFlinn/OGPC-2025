@@ -36,6 +36,7 @@ public class LightningSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Spawns lightning in random position every 3-13 seconds
         canHurt = false;
         xmax = max1.position.x;
         ymax = max1.position.y;
@@ -59,6 +60,7 @@ public class LightningSpawn : MonoBehaviour
         
 
     }
+    //Makes player take damage, safelock makes it so only the lightning will damage once.
     void OnTriggerStay2D(Collider2D collide)
     {
         if (collide.tag == "Player" && canHurt == true && safelock == false)

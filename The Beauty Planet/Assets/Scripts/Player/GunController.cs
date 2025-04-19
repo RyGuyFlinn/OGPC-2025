@@ -11,7 +11,7 @@ public class GunController : MonoBehaviour
     public GameObject player;
     public Transform muzzle;
     public AudioClip blastSound;
-
+    private float secret;
     public float fireRate = 0.3f;
     private float nextFire;
 
@@ -54,6 +54,25 @@ public class GunController : MonoBehaviour
             //play blast sound
             audio.clip = blastSound;
             audio.Play();
+        }
+
+        //Secret code, to help beat game faster when showcasing to judges.
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            if (secret == 3)
+            {
+                nextFire = Time.time + fireRate;
+
+                Instantiate(projectile, muzzle.position, transform.rotation);
+
+                //play blast sound
+                audio.clip = blastSound;
+                audio.Play();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            secret += 1;
         }
     }
 }

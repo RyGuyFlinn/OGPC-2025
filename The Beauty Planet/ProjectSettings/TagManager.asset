@@ -12,6 +12,7 @@ TagManager:
   - Breakable
   - Boss
   - Map
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
