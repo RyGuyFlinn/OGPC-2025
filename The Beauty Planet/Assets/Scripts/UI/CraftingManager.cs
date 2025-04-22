@@ -74,7 +74,7 @@ public class CraftingManager : MonoBehaviour
 
                 if (hotbar.GetComponent<hotbar>().HasEmptySlot() == false && hotbar.GetComponent<hotbar>().HasItem(selectedButton.GetComponent<CraftingButton>().craftingRecepie[2]) == 0)
                 {
-                    player.GetComponent<PlayerController>().dropItem((selectedButton.GetComponent<CraftingButton>().Item).gameObject.GetComponent<IneractionItem>().prefab);
+                    player.GetComponent<PlayerController>().dropItem(selectedButton.GetComponent<CraftingButton>().Item.gameObject.GetComponent<IneractionItem>().prefab);
                 }
                 else
                 {

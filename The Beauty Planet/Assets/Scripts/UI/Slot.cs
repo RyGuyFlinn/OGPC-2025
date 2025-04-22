@@ -28,6 +28,8 @@ public class Slot : MonoBehaviour
 
     public string item_name;
 
+    public bool crafting = false;
+
     void Update()
     {
         if (hasHoldingItem == true)
@@ -41,6 +43,9 @@ public class Slot : MonoBehaviour
                 holdingItem.SetActive(true);
             }
         }
+
+        crafting = GameObject.Find("WorkBenchCollider").gameObject.GetComponent<WorkBench>().crafting;
+
         //Change the quantity label
         quantityLabel.text = "x" + quantity.ToString();
 
@@ -65,15 +70,18 @@ public class Slot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (HealAmount > 0)
+                if (crafting == false)
                 {
-                    GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
-                    RemoveItem();
-                }
-                if (OxygenAmount > 0)
-                {
-                    GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
-                    RemoveItem();
+                    if (HealAmount > 0)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
+                        RemoveItem();
+                    }
+                    if (OxygenAmount > 0)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
+                        RemoveItem();
+                    }
                 }
             }
         } 

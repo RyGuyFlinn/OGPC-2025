@@ -19,6 +19,8 @@ public class GunController : MonoBehaviour
 
     public Vector2 offset;
 
+    public bool crafting = false;
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -28,6 +30,8 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        crafting = GameObject.Find("WorkBenchCollider").gameObject.GetComponent<WorkBench>().crafting;
+        
         transform.position = player.gameObject.transform.position + new Vector3(offset.x, offset.y, 0);
 
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
@@ -45,7 +49,7 @@ public class GunController : MonoBehaviour
             offset.x = Mathf.Abs(offset.x);
         }
 
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        if (Input.GetMouseButtonDown(0) && Time.time > nextFire && crafting == false)
         {
             nextFire = Time.time + fireRate;
 
