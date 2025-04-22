@@ -67,8 +67,11 @@ public class CraftingManager : MonoBehaviour
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[0]);
                 }
 
+                Debug.Log("First");
+
                 for (int i = 1; i <= int.Parse(slotTwoQuantity.text); i++)
                 {
+                    Debug.Log("Second");
                     hotbar.GetComponent<hotbar>().SubItem(selectedButton.GetComponent<CraftingButton>().craftingRecepieItems[1]);
                 }
 
