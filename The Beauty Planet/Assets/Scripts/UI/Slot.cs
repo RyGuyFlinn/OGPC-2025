@@ -122,22 +122,32 @@ public class Slot : MonoBehaviour
             var tempColor = image.color;
             tempColor.a = 0f;
             image.color = tempColor;
-           
+            
             quantity = 0;
             currentItem = null;
             HealAmount = 0;
             OxygenAmount = 0;
             has_item = false;
             texture.sprite = null;
+
+            if (itemToDrop != null)
+            {
+                Destroy(itemToDrop.gameObject);
+                itemToDrop = null;
+            }
+
+            if (holdingItem != null)
+            {
+                Destroy(holdingItem.gameObject);
+                holdingItem = null;
+            }
+
             hasHoldingItem = false;
-            Destroy(itemToDrop.gameObject);
-            Destroy(holdingItem.gameObject);
-            itemToDrop = null;
         }
         else
         {
             quantity -= 1;
-            
         }
     }
+
 }
