@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject hotbar;
     private GameObject itemToDrop;
+    public GameObject map;
 
     public AudioClip itemPickup;
     public AudioClip itemDrop;
@@ -73,6 +74,16 @@ public class PlayerController : MonoBehaviour
         // Movement Animations
         animator.SetFloat("V_Speed", body.velocity.y);
         animator.SetFloat("H_Speed", body.velocity.x);
+
+        //activate map when holding down C
+        if (Input.GetKey(KeyCode.C))
+        {
+            map.SetActive(true);
+        }
+        else
+        {
+            map.SetActive(false);
+        }
     }
 
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
