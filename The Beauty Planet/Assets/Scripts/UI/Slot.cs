@@ -99,6 +99,7 @@ public class Slot : MonoBehaviour
         quantity += 1;
 
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+        gameObject.GetComponent<Window>().itemText = ItemToAdd.GetComponent<IneractionItem>().itemName;
 
         HealAmount = ItemToAdd.GetComponent<IneractionItem>().HealAmount;
         OxygenAmount = ItemToAdd.GetComponent<IneractionItem>().OxygenAmount;
@@ -129,6 +130,8 @@ public class Slot : MonoBehaviour
             OxygenAmount = 0;
             has_item = false;
             texture.sprite = null;
+
+            gameObject.GetComponent<Window>().itemText = "";
 
             if (itemToDrop != null)
             {
