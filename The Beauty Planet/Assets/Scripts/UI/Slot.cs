@@ -10,6 +10,8 @@ public class Slot : MonoBehaviour
 {
     public bool selected = false;
 
+    public int slotNumber;
+
     public Sprite unSelected;
     public Sprite Selected;
 
@@ -151,6 +153,11 @@ public class Slot : MonoBehaviour
         {
             quantity -= 1;
         }
+    }
+
+    public void OnButtonPressed()
+    {
+        GameObject.Find("HotBar").gameObject.GetComponent<hotbar>().selected = slotNumber;
     }
 
 }
