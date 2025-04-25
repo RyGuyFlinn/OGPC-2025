@@ -21,6 +21,7 @@ public class Slot : MonoBehaviour
     public GameObject holdingItem;
     public bool has_item = false;
     public bool hasHoldingItem = false;
+    public bool hasHoldingItemWhenClicked = false;
 
     public TextMeshProUGUI quantityLabel;
     public int quantity = 0;
@@ -43,6 +44,25 @@ public class Slot : MonoBehaviour
             else
             {
                 holdingItem.SetActive(true);
+            }
+        }
+
+        if (hasHoldingItemWhenClicked == true)
+        {
+            if (selected == false)
+            {
+                holdingItem.SetActive(false);
+            }
+            else
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    holdingItem.SetActive(true);
+                }
+                else
+                {
+                    holdingItem.SetActive(false);
+                }
             }
         }
 
@@ -114,6 +134,13 @@ public class Slot : MonoBehaviour
             GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
             holdingItem = Instantiate(item);
             hasHoldingItem = true;
+        }
+        if (currentItem.GetComponent<IneractionItem>().hasHoldingItemWhenClicked == true)
+        {
+            GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
+            holdingItem = Instantiate(item);
+            holdingItem.SetActive(false);
+            hasHoldingItemWhenClicked = true;
         }
     }
 

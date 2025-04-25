@@ -12,5 +12,6 @@ public class IneractionItem : MonoBehaviour
     public int HealAmount;
     public int OxygenAmount;
     public bool hasHoldingItem;
+    public bool hasHoldingItemWhenClicked;
     public GameObject holdingItem;
 }
