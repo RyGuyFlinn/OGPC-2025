@@ -35,33 +35,36 @@ public class Slot : MonoBehaviour
 
     void Update()
     {
-        if (hasHoldingItem == true)
+        if (holdingItem != null)
         {
-            if (selected == false)
+            if (hasHoldingItem == true)
             {
-                holdingItem.SetActive(false);
-            }
-            else
-            {
-                holdingItem.SetActive(true);
-            }
-        }
-
-        if (hasHoldingItemWhenClicked == true)
-        {
-            if (selected == false)
-            {
-                holdingItem.SetActive(false);
-            }
-            else
-            {
-                if (Input.GetMouseButton(0))
+                if (selected == false)
                 {
-                    holdingItem.SetActive(true);
+                    holdingItem.SetActive(false);
                 }
                 else
                 {
+                    holdingItem.SetActive(true);
+                }
+            }
+
+            else if (hasHoldingItemWhenClicked == true)
+            {
+                if (selected == false)
+                {
                     holdingItem.SetActive(false);
+                }
+                else
+                {
+                    if (Input.GetMouseButton(0))
+                    {
+                        holdingItem.SetActive(true);
+                    }
+                    else
+                    {
+                        holdingItem.SetActive(false);
+                    }
                 }
             }
         }
