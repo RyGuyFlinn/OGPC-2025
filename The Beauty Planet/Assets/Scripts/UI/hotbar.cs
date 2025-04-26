@@ -15,6 +15,9 @@ public class hotbar : MonoBehaviour
 
     private bool added_item = false;
 
+    private float scrollAccumulator = 0f;
+    public static float sensitivityThreshold = .2f; // Adjust this for how much scroll is needed
+
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
     {
         for (int i = 0; i < slots.Length; i++)
@@ -187,33 +190,23 @@ public class hotbar : MonoBehaviour
         }
 
         //Changing what slot is selected with mouse wheel
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f ) // forward
+        float scrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
+        scrollAccumulator += scrollWheelValue;
+
+        if (scrollAccumulator >= sensitivityThreshold)
         {
-            if (selected == 6)
-            {
-                selected = 1;
-            }
-            else
-            {
-                selected += 1;
-            }
-            
+            selected = selected == 6 ? 1 : selected + 1;
+            scrollAccumulator = 0f; // Reset after action
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f ) // backwards
+        else if (scrollAccumulator <= -sensitivityThreshold)
         {
-            if (selected == 1)
-            {
-                selected = 6;
-            }
-            else
-            {
-                selected -= 1;
-            }
+            selected = selected == 1 ? 6 : selected - 1;
+            scrollAccumulator = 0f; // Reset after action
         }
 
 
         // Selection Detection
-       if (selected == 1) {
+        if (selected == 1) {
             slots[0].GetComponent<Slot>().selected = true;
        } else {
             slots[0].GetComponent<Slot>().selected = false;
