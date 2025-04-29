@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerOxygen : MonoBehaviour
 {
 
-    public int maxOxygen = 100;
+    public int[] maxOxygen;
     public int currentOxygen = 100;
+
+    public int upgradeLevel = 0;
 
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;
@@ -16,8 +18,8 @@ public class PlayerOxygen : MonoBehaviour
     IEnumerator Start()
     {
         //Sets oxygen to max
-        currentOxygen = maxOxygen;
-        oxygenBar.SetMaxOxygen(maxOxygen);
+        currentOxygen = maxOxygen[upgradeLevel];
+        oxygenBar.SetMaxOxygen(maxOxygen[upgradeLevel]);
         //Makes you lose oxygen every second
         
             while (true)
@@ -55,7 +57,7 @@ public class PlayerOxygen : MonoBehaviour
 
     public void resetOxegen()
     {
-        currentOxygen = maxOxygen;
+        currentOxygen = maxOxygen[upgradeLevel];
         oxygenBar.SetOxygen(currentOxygen);
     }
 }

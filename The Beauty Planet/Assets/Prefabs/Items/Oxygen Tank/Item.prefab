@@ -46,10 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Oxygen Tank
   MaxStack: 16
-  icon: {fileID: 21300000, guid: 2bba550dcd29d4440a9b15491311a2d0, type: 3}
+  icon: {fileID: -965254202, guid: 4a1b9d620179e6e43a0ee9682b8fa999, type: 3}
   description: High in Fiber!
   prefab: {fileID: 7149088156984862723, guid: d7bfa40ec191a8742b3d9951474b482a, type: 3}
   HealAmount: 0
   OxygenAmount: 50
   hasHoldingItem: 0
+  hasHoldingItemWhenClicked: 0
   holdingItem: {fileID: 0}

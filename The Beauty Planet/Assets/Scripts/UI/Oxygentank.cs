@@ -23,9 +23,9 @@ public class Oxygentank : MonoBehaviour
         if (player.tag == "Player")
         {
             oxygen.currentOxygen += Oxygengain;
-            if (oxygen.currentOxygen > oxygen.maxOxygen)
+            if (oxygen.currentOxygen > oxygen.maxOxygen[oxygen.upgradeLevel])
             {
-                oxygen.currentOxygen = oxygen.maxOxygen;
+                oxygen.currentOxygen = oxygen.maxOxygen[oxygen.upgradeLevel];
                 
             }
             oxygen.oxygenBar.SetOxygen(oxygen.currentOxygen);

@@ -28,6 +28,7 @@ public class Slot : MonoBehaviour
 
     public float HealAmount;
     public int OxygenAmount;
+    public int OxygenUpgrade;
 
     public string item_name;
 
@@ -107,6 +108,10 @@ public class Slot : MonoBehaviour
                         GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
                         RemoveItem();
                     }
+                    if (OxygenUpgrade > GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel = OxygenUpgrade;
+                    }
                 }
             }
         } 
@@ -128,6 +133,7 @@ public class Slot : MonoBehaviour
 
         HealAmount = ItemToAdd.GetComponent<IneractionItem>().HealAmount;
         OxygenAmount = ItemToAdd.GetComponent<IneractionItem>().OxygenAmount;
+        OxygenUpgrade = ItemToAdd.GetComponent<IneractionItem>().OxygenUpgrade;
 
         itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
         itemToDrop.SetActive(false);
@@ -189,5 +195,4 @@ public class Slot : MonoBehaviour
     {
         GameObject.Find("HotBar").gameObject.GetComponent<hotbar>().selected = slotNumber;
     }
-
 }
