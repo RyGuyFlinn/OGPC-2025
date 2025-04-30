@@ -50,7 +50,8 @@ MonoBehaviour:
   description: High in Fiber!
   prefab: {fileID: 7149088156984862723, guid: d7bfa40ec191a8742b3d9951474b482a, type: 3}
   HealAmount: 0
-  OxygenAmount: 50
+  OxygenAmount: 100
+  OxygenUpgrade: 0
   hasHoldingItem: 0
   hasHoldingItemWhenClicked: 0
   holdingItem: {fileID: 0}

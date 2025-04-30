@@ -34,15 +34,15 @@ public class Radiation : MonoBehaviour
             randomlvl = Random.Range(0, 3);
             if (randomlvl == 0)
             {
-                lvl = 60;
+                lvl = 20;
             }
             if (randomlvl == 1)
             {
-                lvl = 30;
+                lvl = 10;
             }
             if (randomlvl == 2)
             {
-                lvl = 10;
+                lvl = 5;
             }
             flash = 0.5f * (lvl / 10f);
         }
@@ -51,7 +51,7 @@ public class Radiation : MonoBehaviour
     {
         if (collide.tag == "Player")
         {
-            time += Time.deltaTime;
+            time += 2 * Time.deltaTime;
              itime = (int)time;
             
            
@@ -61,9 +61,6 @@ public class Radiation : MonoBehaviour
                 if (itime >= lvl)
                 {
                     health.TakeDamage(10);
-
-                   
-                    
                 }
                 if (itime < lvl)
                 {
