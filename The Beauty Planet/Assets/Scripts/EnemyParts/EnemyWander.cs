@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyWander : MonoBehaviour
 {
-    private Gameobject target;
     public float speed;
-    public float wobblyness;
+    public float wobble;
+    private float wobbleAcceleration;
+    private float direction;
     public bool upAndDown;
     //private Animator animator;
     private SpriteRenderer renderer;
@@ -25,18 +26,12 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        //move target a little bit
-        target.transform.position += new Vector3(
-        (wobblyness, -wobblyness), 
-        (wobblyness, -wobblyness), 
-        transform.position.Z);
-        //keep target close to crab
-        target.transform.position = new Vector3(
-        (transform.position.x + target.transform.position.x) / 2, 
-        (transform.position.y + target.transform.position.y) / 2, 
-        transform.position.Z);
+        //change the direction acceleration by a small amount and then dampen it
+        wobbleAcceleration = (wobbleAcceleration + Random.Range(wobble, -wobble)) * 0.95;
+
+        direction += wobbleAcceleration;
         
-        agent.SetDestination(target.position);
+        agent.SetDestination(transform.position);
         
         if (upAndDown == true)
         {
