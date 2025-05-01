@@ -17,8 +17,16 @@ public class Bullet : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-            col.GetComponent<EnemyHealth>().takeDamage(damage);
-            Destroy(this.gameObject);
+            if (GetComponent<EnemyHealth>() == null)
+            {
+                col.GetComponent<EnemyHideHealth>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                col.GetComponent<EnemyHealth>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }
         }
         if (col.tag == "Enviroment")
         {
