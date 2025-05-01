@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-            if (GetComponent<EnemyHealth>() == null)
+            if (col.GetComponent<EnemyHealth>() == null)
             {
                 col.GetComponent<EnemyHideHealth>().takeDamage(damage);
                 Destroy(this.gameObject);

@@ -15,10 +15,13 @@ public class EnemyDashMovement : MonoBehaviour
     private Vector3 dir;
 
     private bool canDash = true;
+    private Vector3 prevPos;
+    private SpriteRenderer renderer;
 
 
     void Start()
     {
+        renderer = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player");
         rgbd = GetComponent<Rigidbody2D>();
     }
@@ -29,6 +32,18 @@ public class EnemyDashMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+        if (prevPos.x > transform.position.x + 0.05f)
+        {
+            renderer.flipX = true;
+        }
+
+        if (prevPos.x < transform.position.x - 0.05f)
+        {
+            renderer.flipX = false;
+        }
+
+        prevPos = transform.position;
     }
 
     IEnumerator Dash()
@@ -46,7 +61,7 @@ public class EnemyDashMovement : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.GetComponent<PlayerHealth>().TakeDamage(damage);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }

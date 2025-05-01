@@ -73,7 +73,7 @@ public class EnemyHideHealth : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        if (timeSinceHit > 400 || Vector3.Distance(transform.position, player.transform.position) <= 3.5f);
+        if (timeSinceHit > 400 || Vector3.Distance(transform.position, player.transform.position) <= 3.5f)
         {
             Debug.Log(Vector3.Distance(transform.position, player.transform.position) + " is less than 3.5");
             health -= damage;
