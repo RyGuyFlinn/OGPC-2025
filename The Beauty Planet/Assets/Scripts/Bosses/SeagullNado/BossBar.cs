@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BossBar : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BossBar : MonoBehaviour
     public int currentHealth;
     public int stage = 1;
     public SeagulNado seagulNado;
+    public TMP_Text titleText;
 
     //Gets HealthBar Script
     public BossBar1 healthBar;
@@ -22,6 +24,7 @@ public class BossBar : MonoBehaviour
         //Sets health to max
         currentHealth = StageOneMaxHealth;
         healthBar.SetMaxHealth(StageOneMaxHealth);
+        titleText.text = "SeagulNado";
     }
 
     void Update()

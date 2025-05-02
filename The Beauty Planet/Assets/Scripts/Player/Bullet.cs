@@ -37,10 +37,9 @@ public class Bullet : MonoBehaviour
             col.gameObject.GetComponent<BossBar>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
-        //Changed the tag so players bullets don't collde with each other.
-        if (col.tag == "EnemyBullet")
+        if (col.tag == "Bob")
         {
-            Destroy(col.gameObject);
+            col.gameObject.GetComponent<BobBossBar>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }

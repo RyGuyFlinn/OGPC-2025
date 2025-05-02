@@ -7,6 +7,7 @@ public class DoorClose : MonoBehaviour
     public Door door;
     public GameObject boss;
     public GameObject bossbar;
+    public bool bob;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -19,7 +20,14 @@ public class DoorClose : MonoBehaviour
             door.isOpen = false;
             boss.SetActive(true);
             bossbar.SetActive(true);
-            boss.GetComponent<SeagulNado>().isFighting = true;
+            if (bob)
+            {
+                boss.GetComponent<Bob>().isFighting = true;
+            }
+            else
+            {
+                boss.GetComponent<SeagulNado>().isFighting = true;
+            }
         }
     }
 }

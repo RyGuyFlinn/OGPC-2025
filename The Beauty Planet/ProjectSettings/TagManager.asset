@@ -13,6 +13,7 @@ TagManager:
   - Boss
   - Map
   - EnemyBullet
+  - Bob
   layers:
   - Default
   - TransparentFX
