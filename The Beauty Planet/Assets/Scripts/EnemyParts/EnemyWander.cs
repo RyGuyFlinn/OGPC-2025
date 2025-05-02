@@ -9,6 +9,7 @@ public class EnemyWander : MonoBehaviour
     private float wobbleAcceleration;
     private float direction;
     public bool upAndDown;
+    public bool isBoss;
     //private Animator animator;
     private SpriteRenderer renderer;
     private Vector3 prevPos;
@@ -18,12 +19,15 @@ public class EnemyWander : MonoBehaviour
 
     void Start()
     {
-        health = GetComponent<EnemyHideHealth>();
+        if (!isBoss)
+        {
+            health = GetComponent<EnemyHideHealth>();
+            renderer = GetComponent<SpriteRenderer>();
+        }
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         //animator = GetComponent<Animator>();
-        renderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -33,7 +37,12 @@ public class EnemyWander : MonoBehaviour
 
         direction = (direction + wobbleAcceleration) % 360;
         
-        if (health.timeSinceHit > 400)
+        if (isBoss)
+        {
+            float radians = direction * Mathf.Deg2Rad;
+            agent.SetDestination(transform.position + 5 * new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), transform.position.z));
+        }
+        else if (health.timeSinceHit > 400)
         {
             float radians = direction * Mathf.Deg2Rad;
             agent.SetDestination(transform.position + 5 * new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), transform.position.z));
@@ -47,7 +56,7 @@ public class EnemyWander : MonoBehaviour
         {
 
         }
-        else
+        else if (isBoss)
         {
             if (prevPos.x > transform.position.x + 0.05f)
             {

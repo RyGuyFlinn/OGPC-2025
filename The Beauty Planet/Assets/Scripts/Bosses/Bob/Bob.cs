@@ -26,14 +26,36 @@ public class Bob : MonoBehaviour
 
     public float bulletSpeed = 1f;
 
+    public bool smashing = false;
+
+    private Animator animator;
+
+    private Vector3 newPos;
+    private Vector3 oldPos;
+
     void Start()
     {
         currentState = State.Idle; // Start in Idle state
         player = GameObject.Find("Player");
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        newPos = transform.position;
+
+        animator.SetBool("Smashing", smashing);
+
+        if (newPos != oldPos)
+        {
+            animator.SetFloat("Speed", 1f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+        
+
         timer += Time.deltaTime;
 
         switch (currentState)
@@ -78,6 +100,8 @@ public class Bob : MonoBehaviour
                 isAttacking = false;
                 break;
         }
+
+        oldPos = transform.position;
     }
 
     IEnumerator Idle()
@@ -131,11 +155,6 @@ public class Bob : MonoBehaviour
         }
 
         currentState = weightedStates[Random.Range(0, weightedStates.Length)];
-    }
-
-    IEnumerator GroundSmash()
-    {
-
     }
 
     private void ShockWave()
