@@ -8,6 +8,8 @@ public class EnemyMelee : MonoBehaviour
     private float attack;
     private Animator animator;
 
+    public bool canAttack = true;
+
     void Start()
     {
         animator = gameObject.transform.parent.gameObject.GetComponent<Animator>();
@@ -26,8 +28,11 @@ public class EnemyMelee : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-            attack = 1;
+            if (canAttack == true)
+            {
+                other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+                attack = 1;
+            }
         }
     }
 }

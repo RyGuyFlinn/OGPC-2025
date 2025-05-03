@@ -22,8 +22,10 @@ public class EnemyWander : MonoBehaviour
         if (!isBoss)
         {
             health = GetComponent<EnemyHideHealth>();
-            renderer = GetComponent<SpriteRenderer>();
+            
         }
+        renderer = GetComponent<SpriteRenderer>();
+
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -56,7 +58,7 @@ public class EnemyWander : MonoBehaviour
         {
 
         }
-        else if (isBoss)
+        else
         {
             if (prevPos.x > transform.position.x + 0.05f)
             {

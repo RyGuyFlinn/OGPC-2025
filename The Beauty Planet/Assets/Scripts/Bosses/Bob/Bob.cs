@@ -33,11 +33,23 @@ public class Bob : MonoBehaviour
     private Vector3 newPos;
     private Vector3 oldPos;
 
+    private EnemyWander wander;
+    private EnemyMove move;
+
+    public EnemyMelee melee;
+
     void Start()
     {
         currentState = State.Idle; // Start in Idle state
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
+
+        wander = GetComponent<EnemyWander>();
+        move = GetComponent<EnemyMove>();
+
+        wander.enabled = true;
+        move.enabled = false;
+        melee.canAttack = false;
     }
 
     void Update()
@@ -71,7 +83,7 @@ public class Bob : MonoBehaviour
                 break;
 
             case State.GroundSmash:
-                SpawnEnemies();
+                StartCoroutine(GroundSmash());
                 currentState = State.Idle;
                 isAttacking = false;
                 break;
@@ -89,7 +101,7 @@ public class Bob : MonoBehaviour
                 break;
 
             case State.DustDevil:
-                ShockWave();
+                SpawnDustDevil();
                 currentState = State.Idle;
                 isAttacking = false;
                 break;
@@ -176,6 +188,21 @@ public class Bob : MonoBehaviour
                 spawnedBullet.transform.rotation = transform.rotation *= Quaternion.Euler(0, 0, (360 / spawnAmount));
             }
         }
+    }
+
+    IEnumerator GroundSmash()
+    {
+        smashing = true;
+        melee.canAttack = true;
+        wander.enabled = false;
+        move.enabled = true;
+
+        yield return new WaitForSeconds(5);
+
+        melee.canAttack = false;
+        wander.enabled = true;
+        move.enabled = false;
+        smashing = false;
     }
 
     IEnumerator ShootBullet()

@@ -6,8 +6,10 @@ public class DeathScreen : MonoBehaviour
 {
     public GameObject player;
     public SeagulNado seagulNado;
+    public Bob bob;
     public GameObject bossbar;
-    public GameObject boss;
+    public GameObject seagullBoss;
+    public GameObject bobBoss;
 
     private GameObject[] enemies;
 
@@ -22,7 +24,9 @@ public class DeathScreen : MonoBehaviour
 
         Time.timeScale = 0;
         seagulNado.isFighting = false;
-        boss.SetActive(false);
+        bob.isFighting = false;
+        seagullBoss.SetActive(false);
+        bobBoss.SetActive(false);
         bossbar.SetActive(false);
     }
 
