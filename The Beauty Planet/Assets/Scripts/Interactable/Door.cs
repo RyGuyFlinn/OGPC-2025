@@ -66,10 +66,8 @@ public class Door : MonoBehaviour
         if (collider.tag == "Player")
         {
             player = null;
-            if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
-            {
-                label.SetActive(false);
-            }
+            
+            label.SetActive(false);
         }
     }
 }

@@ -15,6 +15,9 @@ public class BobBossBar : MonoBehaviour
     public int stage = 1;
     public Bob bob;
     public TMP_Text titleText;
+    public Door door;
+    public DoorClose doorClose;
+    public GameObject bossBar;
 
     //Gets HealthBar Script
     public BossBar1 healthBar;
@@ -42,7 +45,7 @@ public class BobBossBar : MonoBehaviour
             }
             else if (stage == 2)
             {
-                SceneManager.LoadScene("WishlistScreen");
+                Die();
             }
         }
     }
@@ -54,4 +57,14 @@ public class BobBossBar : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    public void Die()
+    {
+        shake.start = true;
+        GetComponent<EnemyDropSystem>().DropItems();
+        door.isOpen = true;
+        bob.isFighting = false;
+        doorClose.beaten = true;
+        Destroy(gameObject);
+        bossBar.SetActive(false);
+    }
 }

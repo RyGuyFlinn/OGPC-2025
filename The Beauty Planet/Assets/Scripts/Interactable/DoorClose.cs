@@ -8,25 +8,29 @@ public class DoorClose : MonoBehaviour
     public GameObject boss;
     public GameObject bossbar;
     public bool bob;
+    public bool beaten = false;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (beaten == false)
         {
-            //play slam sound
-            door.audio.clip = door.closeSound;
-            door.audio.Play();
+            if (col.tag == "Player")
+            {
+                //play slam sound
+                door.audio.clip = door.closeSound;
+                door.audio.Play();
 
-            door.isOpen = false;
-            boss.SetActive(true);
-            bossbar.SetActive(true);
-            if (bob)
-            {
-                boss.GetComponent<Bob>().isFighting = true;
-            }
-            else
-            {
-                boss.GetComponent<SeagulNado>().isFighting = true;
+                door.isOpen = false;
+                boss.SetActive(true);
+                bossbar.SetActive(true);
+                if (bob)
+                {
+                    boss.GetComponent<Bob>().isFighting = true;
+                }
+                else
+                {
+                    boss.GetComponent<SeagulNado>().isFighting = true;
+                }
             }
         }
     }

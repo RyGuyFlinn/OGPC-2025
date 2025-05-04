@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WishlistScreen.unity
     guid: eb3e6f8d26acec842ae3cc1663a4fa05
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2d39dcb9481f11144bcb4021a6a7a780
   m_configObjects: {}

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1070790321835757502}
   - component: {fileID: -8820731757090406281}
   - component: {fileID: 3889546943998608616}
+  - component: {fileID: 4169598898792815098}
   m_Layer: 0
   m_Name: Seagull
-  m_TagString: Bullet
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +147,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9411765, y: 0.51491356}
   m_EdgeRadius: 0
+--- !u!114 &4169598898792815098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041034339773995515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89965dd999378aa4cb43e7171633b612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  health: 20
+  hitSound: {fileID: 8300000, guid: 79b2c5fcc4750034f8e6b3fb1a150dd0, type: 3}
+  deathSound: {fileID: 8300000, guid: 7715ce4c7ae862b47a1e97bba8724592, type: 3}

@@ -15,6 +15,9 @@ public class BossBar : MonoBehaviour
     public int stage = 1;
     public SeagulNado seagulNado;
     public TMP_Text titleText;
+    public Door door;
+    public DoorClose doorClose;
+    public GameObject bossBar;
 
     //Gets HealthBar Script
     public BossBar1 healthBar;
@@ -42,7 +45,7 @@ public class BossBar : MonoBehaviour
             }
             else if (stage == 2)
             {
-                SceneManager.LoadScene("WishlistScreen");
+                Die();
             }
         }
     }
@@ -53,5 +56,15 @@ public class BossBar : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-    
+
+    public void Die()
+    {
+        shake.start = true;
+        GetComponent<EnemyDropSystem>().DropItems();
+        door.isOpen = true;
+        seagulNado.isFighting = false;
+        doorClose.beaten = true;
+        Destroy(gameObject);
+        bossBar.SetActive(false);
+    }
 }
