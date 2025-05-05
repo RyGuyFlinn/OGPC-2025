@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public float currentHealth;
+    public bool HealthUpgrade;
 
     //Gets HealthBar Script
     public Healthbar healthBar;
@@ -60,6 +61,15 @@ public class PlayerHealth : MonoBehaviour
             time = 0;
             prevtime = 0;
             
+        }
+        
+        if (HealthUpgrade)
+        {
+            maxHealth = 250;
+        }
+        else
+        {
+            maxHealth = 100;
         }
     }
 

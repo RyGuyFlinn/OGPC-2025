@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 GetComponent<EnemyDropSystem>().DropItems();
             }
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         //when too far away from player, despawn

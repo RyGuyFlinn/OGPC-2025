@@ -29,6 +29,7 @@ public class Slot : MonoBehaviour
     public float HealAmount;
     public int OxygenAmount;
     public int OxygenUpgrade;
+    public bool HealthUpgrade;
 
     public string item_name;
 
@@ -112,6 +113,10 @@ public class Slot : MonoBehaviour
                     {
                         GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel = OxygenUpgrade;
                     }
+                    if (HealthUpgrade)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().HealthUpgrade = HealthUpgrade;
+                    }
                 }
             }
         } 
@@ -134,6 +139,7 @@ public class Slot : MonoBehaviour
         HealAmount = ItemToAdd.GetComponent<IneractionItem>().HealAmount;
         OxygenAmount = ItemToAdd.GetComponent<IneractionItem>().OxygenAmount;
         OxygenUpgrade = ItemToAdd.GetComponent<IneractionItem>().OxygenUpgrade;
+        HealthUpgrade = ItemToAdd.GetComponent<IneractionItem>().HealthUpgrade;
 
         itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
         itemToDrop.SetActive(false);

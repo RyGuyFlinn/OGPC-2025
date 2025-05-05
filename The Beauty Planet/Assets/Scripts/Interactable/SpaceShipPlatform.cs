@@ -155,7 +155,6 @@ public class SpaceShipPlatform : MonoBehaviour
         {
             progress++;
         }
-        Debug.Log(parentSprite.sprite);
         parentSprite.sprite = platformProgress[progress];
     }
     void OnTriggerEnter2D(Collider2D collider)

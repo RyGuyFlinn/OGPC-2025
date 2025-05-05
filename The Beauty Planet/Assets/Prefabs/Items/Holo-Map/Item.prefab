@@ -51,6 +51,8 @@ MonoBehaviour:
   prefab: {fileID: 8000624594075079787, guid: 49afdb50cd5d092448a14972cf011dbd, type: 3}
   HealAmount: 0
   OxygenAmount: 0
+  OxygenUpgrade: 0
+  HealthUpgrade: 0
   hasHoldingItem: 0
   hasHoldingItemWhenClicked: 1
-  holdingItem: {fileID: 5544349773102050968, guid: 2b74c094be8cb1f4cbbee20fb5c85792, type: 3}
+  holdingItem: {fileID: 1337604845251532775, guid: 47d07f343187200439d80897e5f43251, type: 3}
