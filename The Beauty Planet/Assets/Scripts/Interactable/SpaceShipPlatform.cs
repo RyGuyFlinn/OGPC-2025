@@ -37,6 +37,12 @@ public class SpaceShipPlatform : MonoBehaviour
 
     [Space]
 
+    public Sprite[] platformProgress;
+
+    private SpriteRenderer parentSprite;
+
+    [Space]
+
     private bool piece1;
     private bool piece2;
     private bool piece3;
@@ -51,6 +57,7 @@ public class SpaceShipPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        parentSprite = this.transform.parent.gameObject.GetComponent<SpriteRenderer>();
         label.SetActive(false);
         piece1 = false;
         piece2 = false;
@@ -127,7 +134,29 @@ public class SpaceShipPlatform : MonoBehaviour
                 }
             }
         }
-
+        int progress = 0;
+        if (piece1)
+        {
+            progress++;
+        }
+        if (piece2)
+        {
+            progress++;
+        }
+        if (piece3)
+        {
+            progress++;
+        }
+        if (piece4)
+        {
+            progress++;
+        }
+        if (piece5)
+        {
+            progress++;
+        }
+        Debug.Log(parentSprite.sprite);
+        parentSprite.sprite = platformProgress[progress];
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
