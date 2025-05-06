@@ -172,8 +172,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1305148446, guid: 3774a252b2ee4c74fb4844f4144c555d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dc7ef1585f8e44fbe37d9eb78ae791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8029640726122798543, guid: 57d0bf68209b300498e2014f15daf2ec, type: 3}
+  projectile: {fileID: 8029640726122798543, guid: 3adc11d109143964ca02f818900b00f9, type: 3}
   player: {fileID: 0}
   muzzle1: {fileID: 2933733340224896215}
   muzzle2: {fileID: 3174570723116649861}

@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Peircing Blaster
   MaxStack: 1
-  icon: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
+  icon: {fileID: -590978869, guid: 3774a252b2ee4c74fb4844f4144c555d, type: 3}
   description: It can shoot plasma blasts through multiply enemies.
-  prefab: {fileID: 7118629333224144203, guid: 5a634d0d0944d934a86b7fd89972689b, type: 3}
+  prefab: {fileID: 0}
   HealAmount: 0
   OxygenAmount: 0
   OxygenUpgrade: 0

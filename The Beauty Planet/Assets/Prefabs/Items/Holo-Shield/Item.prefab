@@ -53,6 +53,6 @@ MonoBehaviour:
   OxygenAmount: 0
   OxygenUpgrade: 0
   HealthUpgrade: 0
-  hasHoldingItem: 0
+  hasHoldingItem: 1
   hasHoldingItemWhenClicked: 0
   holdingItem: {fileID: 8425910879376105418, guid: 9206351fb3fa45344915394ac88fda6c, type: 3}
