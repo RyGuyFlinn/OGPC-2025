@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89965dd999378aa4cb43e7171633b612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 400
-  health: 400
+  maxHealth: 300
+  health: 300
   hitSound: {fileID: 8300000, guid: 79b2c5fcc4750034f8e6b3fb1a150dd0, type: 3}
   deathSound: {fileID: 8300000, guid: 7715ce4c7ae862b47a1e97bba8724592, type: 3}
 --- !u!61 &3482092932207319963
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f384c078e58ed844b54d79d56638496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashWaitTime: 2
+  dashWaitTime: 1.5
   dashForce: 30
   dashing: 1
   damage: 25

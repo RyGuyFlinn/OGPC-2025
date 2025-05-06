@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f384c078e58ed844b54d79d56638496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashWaitTime: 2
+  dashWaitTime: 1.5
   dashForce: 15
   dashing: 1
   damage: 20
