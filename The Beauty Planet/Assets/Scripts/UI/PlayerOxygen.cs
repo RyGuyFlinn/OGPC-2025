@@ -21,8 +21,8 @@ public class PlayerOxygen : MonoBehaviour
         currentOxygen = maxOxygen[upgradeLevel];
         oxygenBar.SetMaxOxygen(maxOxygen[upgradeLevel]);
         //Makes you lose oxygen every second
-        
-            while (true)
+
+        while (true)
             {
                 if (currentOxygen < 0)
                 {   
@@ -59,5 +59,10 @@ public class PlayerOxygen : MonoBehaviour
     {
         currentOxygen = maxOxygen[upgradeLevel];
         oxygenBar.SetOxygen(currentOxygen);
+    }
+
+    void Update()
+    {
+        oxygenBar.SetMaxOxygen(maxOxygen[upgradeLevel]);
     }
 }
