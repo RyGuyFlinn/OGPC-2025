@@ -112,6 +112,7 @@ public class Slot : MonoBehaviour
                     if (OxygenUpgrade > GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel)
                     {
                         GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel = OxygenUpgrade;
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeOxygen();
                     }
                     if (HealthUpgrade)
                     {

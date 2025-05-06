@@ -41,12 +41,12 @@ public class PlayerOxygen : MonoBehaviour
                 }
 
             }
-        
-        void LoseOxygen(int amount)
-        {
-            currentOxygen -= amount;
-            oxygenBar.SetOxygen(currentOxygen);
-        } 
+    }
+
+    void LoseOxygen(int amount)
+    {
+        currentOxygen -= amount;
+        oxygenBar.SetOxygen(currentOxygen);
     }
 
     public void RaiseOxygen(int amount)
@@ -61,8 +61,10 @@ public class PlayerOxygen : MonoBehaviour
         oxygenBar.SetOxygen(currentOxygen);
     }
 
-    void Update()
+    public void upgradeOxygen()
     {
         oxygenBar.SetMaxOxygen(maxOxygen[upgradeLevel]);
+        currentOxygen = maxOxygen[upgradeLevel];
+        oxygenBar.SetOxygen(currentOxygen);
     }
 }

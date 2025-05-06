@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5167002487177358551}
   - component: {fileID: 9131361110199337347}
   - component: {fileID: -1498710415162160537}
+  - component: {fileID: 1659285726977587501}
   m_Layer: 0
   m_Name: Radioactive Vermifly
   m_TagString: Enemy
@@ -290,6 +291,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1659285726977587501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224643964995928474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e780467e6f928418ec9cb39bc8c41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAmount: 1
+  drops:
+  - {fileID: 8888230590778028803, guid: 7656faedd4cfd6e47b5bb6d9755a2832, type: 3}
+  - {fileID: 2437070919529004043, guid: 4d5c7a7916cecb441a067bbb7ad49450, type: 3}
+  dropChance: 25
 --- !u!1001 &3555787386056566396
 PrefabInstance:
   m_ObjectHideFlags: 0

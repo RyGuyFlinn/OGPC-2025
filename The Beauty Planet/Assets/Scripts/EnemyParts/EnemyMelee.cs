@@ -17,7 +17,7 @@ public class EnemyMelee : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("attack", attack);
+        //animator.SetFloat("attack", attack);
         if (attack > 0)
         {
             attack += -0.05f;

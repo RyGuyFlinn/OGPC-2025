@@ -48,8 +48,11 @@ MonoBehaviour:
   MaxStack: 1
   icon: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
   description: It can shoot plasma blasts!
-  prefab: {fileID: 7118629333224144203, guid: 242dda82f7ca1814c9193f343d2bcac2, type: 3}
+  prefab: {fileID: 0}
   HealAmount: 0
   OxygenAmount: 0
+  OxygenUpgrade: 0
+  HealthUpgrade: 0
   hasHoldingItem: 1
+  hasHoldingItemWhenClicked: 0
   holdingItem: {fileID: 8911873401053300246, guid: d4b04efd4dad983498ba818c01bb7605, type: 3}

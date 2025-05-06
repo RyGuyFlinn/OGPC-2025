@@ -15,19 +15,21 @@ public class DeathScreen : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Death");
+        seagulNado.isFighting = false;
+        bob.isFighting = false;
+        seagullBoss.SetActive(false);
+        bobBoss.SetActive(false);
+        bossbar.SetActive(false);
+        bobBoss.GetComponent<BobBossBar>().bossBar.SetActive(false);
+        Time.timeScale = 0;
+
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (int i = 0; i < enemies.Length; i++)
         {
             Destroy(enemies[i].gameObject);
         }
-
-        Time.timeScale = 0;
-        seagulNado.isFighting = false;
-        bob.isFighting = false;
-        seagullBoss.SetActive(false);
-        bobBoss.SetActive(false);
-        bossbar.SetActive(false);
     }
 
     public void Respawn()

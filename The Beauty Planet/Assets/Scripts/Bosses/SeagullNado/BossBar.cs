@@ -64,7 +64,7 @@ public class BossBar : MonoBehaviour
         door.isOpen = true;
         seagulNado.isFighting = false;
         doorClose.beaten = true;
-        Destroy(gameObject);
         bossBar.SetActive(false);
+        Destroy(gameObject);
     }
 }

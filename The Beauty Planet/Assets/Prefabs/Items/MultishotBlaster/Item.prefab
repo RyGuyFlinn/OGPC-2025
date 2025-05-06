@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4472316080280849475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4376559064189955171}
+  - component: {fileID: 4549790890641703493}
+  m_Layer: 0
+  m_Name: Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4376559064189955171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472316080280849475}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4549790890641703493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472316080280849475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3173323f71d5b409857bc2d630a2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Multi-Shot Blaster
+  MaxStack: 1
+  icon: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
+  description: It can shoot three plasma blasts!
+  prefab: {fileID: 0}
+  HealAmount: 0
+  OxygenAmount: 0
+  OxygenUpgrade: 0
+  HealthUpgrade: 0
+  hasHoldingItem: 1
+  hasHoldingItemWhenClicked: 0
+  holdingItem: {fileID: 8911873401053300246, guid: 55f6b5c372f20744f91b12b5b09828f2, type: 3}

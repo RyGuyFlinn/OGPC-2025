@@ -64,7 +64,7 @@ public class BobBossBar : MonoBehaviour
         door.isOpen = true;
         bob.isFighting = false;
         doorClose.beaten = true;
-        Destroy(gameObject);
         bossBar.SetActive(false);
+        Destroy(gameObject);
     }
 }
