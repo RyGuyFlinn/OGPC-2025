@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject hotbar;
     private GameObject itemToDrop;
+
+    public Sprite RadiationSuit;
 
     public AudioClip itemPickup;
     public AudioClip itemDrop;
@@ -73,6 +76,11 @@ public class PlayerController : MonoBehaviour
         // Movement Animations
         animator.SetFloat("V_Speed", body.velocity.y);
         animator.SetFloat("H_Speed", body.velocity.x);
+
+        if (hotbar.GetComponent<hotbar>().HasItem(RadiationSuit) > 0)
+        {
+            Debug.Log("Radiation Suit");
+        }
     }
 
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
