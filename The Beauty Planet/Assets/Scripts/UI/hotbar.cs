@@ -92,7 +92,7 @@ public class hotbar : MonoBehaviour
                 {
                     if (slots[i].GetComponent<Slot>().texture.sprite == ItemToSub.GetComponent<IneractionItem>().icon)
                     {
-                        
+                        slots[i].GetComponent<Slot>().RemoveItem();
                         subbedItem = true;
                     }
                 }
