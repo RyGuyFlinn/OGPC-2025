@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Multi-Shot Blaster
   MaxStack: 1
-  icon: {fileID: 21300000, guid: b000f87cf1dc3b142b48587db7132a06, type: 3}
+  icon: {fileID: 1305148446, guid: 3774a252b2ee4c74fb4844f4144c555d, type: 3}
   description: It can shoot three plasma blasts!
-  prefab: {fileID: 0}
+  prefab: {fileID: 8911873401053300246, guid: 55f6b5c372f20744f91b12b5b09828f2, type: 3}
   HealAmount: 0
   OxygenAmount: 0
   OxygenUpgrade: 0

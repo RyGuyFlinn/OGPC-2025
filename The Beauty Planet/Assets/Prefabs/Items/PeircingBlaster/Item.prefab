@@ -48,7 +48,7 @@ MonoBehaviour:
   MaxStack: 1
   icon: {fileID: -590978869, guid: 3774a252b2ee4c74fb4844f4144c555d, type: 3}
   description: It can shoot plasma blasts through multiply enemies.
-  prefab: {fileID: 0}
+  prefab: {fileID: 8911873401053300246, guid: d39b68a9b09533a40bd58b9369a65c9f, type: 3}
   HealAmount: 0
   OxygenAmount: 0
   OxygenUpgrade: 0
