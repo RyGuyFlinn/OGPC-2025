@@ -117,6 +117,7 @@ public class Slot : MonoBehaviour
                     if (HealthUpgrade)
                     {
                         GameObject.Find("Player").GetComponent<PlayerHealth>().HealthUpgrade = HealthUpgrade;
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().UpgradeHealth();
                     }
                 }
             }

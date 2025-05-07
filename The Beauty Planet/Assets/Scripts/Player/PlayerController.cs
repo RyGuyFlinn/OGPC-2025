@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private GameObject itemToDrop;
 
     public Sprite RadiationSuit;
+    public bool hasRadSuit;
 
     public AudioClip itemPickup;
     public AudioClip itemDrop;
@@ -77,10 +78,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("V_Speed", body.velocity.y);
         animator.SetFloat("H_Speed", body.velocity.x);
 
-        if (hotbar.GetComponent<hotbar>().HasItem(RadiationSuit) > 0)
-        {
-            Debug.Log("Radiation Suit");
-        }
+        hasRadSuit = hotbar.GetComponent<hotbar>().HasItem(RadiationSuit) > 0;
     }
 
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)

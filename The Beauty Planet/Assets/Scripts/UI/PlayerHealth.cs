@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject deathScreen;
 
     public GameObject hurtOverlay;
-    
+
     //Time Variables for health deprectiation
     public float time;
     public int prevtime;
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         //Sets health to max
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        
+
         oxygen.currentOxygen = 100;
     }
 
@@ -60,9 +60,9 @@ public class PlayerHealth : MonoBehaviour
         {
             time = 0;
             prevtime = 0;
-            
+
         }
-        
+
         if (HealthUpgrade)
         {
             maxHealth = 250;
@@ -104,4 +104,19 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    public void UpgradeHealth()
+    {
+        if (HealthUpgrade)
+        {
+            healthBar.SetMaxHealth(250);
+            currentHealth = 250;
+            healthBar.SetHealth(250);
+        }
+        else
+        {
+            healthBar.SetMaxHealth(100);
+            currentHealth = 100;
+            healthBar.SetHealth(100);
+        }
+    }
 }

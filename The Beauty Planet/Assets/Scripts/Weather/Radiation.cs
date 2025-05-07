@@ -9,6 +9,7 @@ public class Radiation : MonoBehaviour
     public int prevtime;
     public PlayerHealth health;
     public GameObject Warning;
+    private PlayerController pc;
     public float flash;
     public float lvl = 10;
     public float randomlvl;
@@ -17,6 +18,7 @@ public class Radiation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pc = GameObject.Find("Player").gameObject.GetComponent<PlayerController>();
         flash = 0.5f * (lvl / 10f);
     }
 
@@ -49,7 +51,7 @@ public class Radiation : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collide)
     {
-        if (collide.tag == "Player")
+        if (collide.tag == "Player" && !pc.hasRadSuit)
         {
             time += 2 * Time.deltaTime;
              itime = (int)time;
