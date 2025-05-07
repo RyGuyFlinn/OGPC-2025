@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0;i < 6;i++)
         {
-            hotbar.transform.GetChild(i).gameObject.GetComponent<Slot>().currentItem = null;
+            hotbar.GetComponent<hotbar>().ClearHotBar();
         }
     }
 }

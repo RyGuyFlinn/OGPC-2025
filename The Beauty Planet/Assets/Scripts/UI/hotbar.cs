@@ -92,7 +92,7 @@ public class hotbar : MonoBehaviour
                 {
                     if (slots[i].GetComponent<Slot>().texture.sprite == ItemToSub.GetComponent<IneractionItem>().icon)
                     {
-                        slots[i].GetComponent<Slot>().RemoveItem();
+                        
                         subbedItem = true;
                     }
                 }
@@ -139,6 +139,19 @@ public class hotbar : MonoBehaviour
         }
     }
 
+    public void ClearHotBar()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].GetComponent<Slot>().quantity > 0)
+            {
+                for (int j = 0; i < slots[i].GetComponent<Slot>().quantity; i++)
+                {
+                    slots[i].GetComponent<Slot>().RemoveItem();
+                }
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
