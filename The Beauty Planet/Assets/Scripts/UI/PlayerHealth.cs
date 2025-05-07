@@ -23,10 +23,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        //Sets health to max
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(100);
 
+        //sets oxygen to max
         oxygen.currentOxygen = 100;
     }
 
