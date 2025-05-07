@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public bool isOpen = true;
     public GameObject parent;
     public GameObject label;
+    public GameObject keycardLabel;
 
     private GameObject player;
 
@@ -48,12 +49,21 @@ public class Door : MonoBehaviour
                 }
             }
         }
+
+        if (isOpen)
+        {
+            keycardLabel.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "Player")
         {
+            if (!isOpen)
+            {
+                keycardLabel.SetActive(true);
+            }
             if (hotbar.GetComponent<hotbar>().HasItem(keycard) >= 1)
             {
                 label.SetActive(true);
@@ -68,6 +78,7 @@ public class Door : MonoBehaviour
             player = null;
             
             label.SetActive(false);
+            keycardLabel.SetActive(false);
         }
     }
 }
