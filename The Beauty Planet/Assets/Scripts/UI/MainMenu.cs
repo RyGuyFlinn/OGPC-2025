@@ -13,11 +13,13 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(gameSceneName);
+        Time.timeScale = 1;
     }
 
     public void Tutorial()
     {
         SceneManager.LoadScene(tutorialSceneName);
+        Time.timeScale = 1;
     }
 
     public void Settings()

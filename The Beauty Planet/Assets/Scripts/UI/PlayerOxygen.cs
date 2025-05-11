@@ -6,9 +6,11 @@ public class PlayerOxygen : MonoBehaviour
 {
 
     public int[] maxOxygen;
-    public int currentOxygen = 100;
+    public int currentOxygen;
 
     public int upgradeLevel = 0;
+
+    public float shipBoundary = 170.0f;
 
     //Gets OxygenBar Script
     public Oxygenbar oxygenBar;
@@ -18,8 +20,8 @@ public class PlayerOxygen : MonoBehaviour
     IEnumerator Start()
     {
         //Sets oxygen to max
-        currentOxygen = maxOxygen[upgradeLevel];
         oxygenBar.SetMaxOxygen(maxOxygen[upgradeLevel]);
+        resetOxegen();
         //Makes you lose oxygen every second
 
         while (true)
@@ -29,7 +31,7 @@ public class PlayerOxygen : MonoBehaviour
                     currentOxygen = 0;
                 }
 
-                if (transform.position.x > 170)
+                if (transform.position.x > shipBoundary)
                 {
                     yield return new WaitForSeconds(0.5f);
                     resetOxegen();

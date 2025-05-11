@@ -25704,9 +25704,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -40366,6 +40366,7 @@ MonoBehaviour:
   maxOxygen: 64000000c8000000f4010000e8030000
   currentOxygen: 100
   upgradeLevel: 0
+  shipBoundary: -100
   oxygenBar: {fileID: 515939956}
   Oxygenamount: 1
   deprecationMultiplayer: 1
@@ -40382,7 +40383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 50
+  currentHealth: 80
   HealthUpgrade: 0
   healthBar: {fileID: 1635283130}
   oxygen: {fileID: 1131091053}
@@ -40440,6 +40441,11 @@ MonoBehaviour:
   itemDrop: {fileID: 8300000, guid: a8a6e1d2dfff3dd4c99eb62986ea14a9, type: 3}
   walk: {fileID: 8300000, guid: f8fd5858d070c3240adec6d1a1f64388, type: 3}
   failSound: {fileID: 8300000, guid: 94349d988a31c1047b2072eb112bb2d6, type: 3}
+  teleports: []
+  shipItems: []
+  bobItems: []
+  weatherItems: []
+  itemFolder: {fileID: 0}
   isSwiming: 0
 --- !u!212 &1131091057
 SpriteRenderer:
@@ -48130,7 +48136,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 80
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
