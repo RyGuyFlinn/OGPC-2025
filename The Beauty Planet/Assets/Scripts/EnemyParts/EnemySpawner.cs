@@ -23,8 +23,11 @@ public class EnemySpawner : MonoBehaviour
             active = false;
             for (int i = 0; i < SpawnNumber; i++)
             {
+                Instantiate(Enemies[Random.Range(0, Enemies.Length)], 
+                transform.position, 
+                Enemies[Random.Range(0, Enemies.Length)].transform.rotation);
                 yield return new WaitForSeconds(Random.Range(0, 1.5f));
-                Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Enemies[Random.Range(0, Enemies.Length)].transform.rotation);
+                
             }
             StartCoroutine(Cooldown());
         }

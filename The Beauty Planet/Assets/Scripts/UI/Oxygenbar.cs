@@ -9,7 +9,6 @@ public class Oxygenbar : MonoBehaviour
     public void SetMaxOxygen(int oxygen)
     {
         slider.maxValue = oxygen;
-        slider.value = oxygen;
     }
     public void SetOxygen(int oxygen)
     {

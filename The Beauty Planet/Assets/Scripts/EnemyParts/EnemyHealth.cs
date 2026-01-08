@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 GetComponent<EnemyDropSystem>().DropItems();
             }
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         //when too far away from player, despawn
@@ -51,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
 
-        if (GetComponent<EnemyDashMovement>() != null)
+        if (GetComponentInChildren<EnemyTouchActivate>() != null)
         {
             GetComponent<EnemyDashMovement>().dashing = true;
             GetComponent<SpriteRenderer>().sprite = GetComponentInChildren<EnemyTouchActivate>().activeSprite;

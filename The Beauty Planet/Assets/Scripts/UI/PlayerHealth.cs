@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public float currentHealth;
+    public bool HealthUpgrade;
 
     //Gets HealthBar Script
     public Healthbar healthBar;
@@ -15,17 +16,16 @@ public class PlayerHealth : MonoBehaviour
     public GameObject deathScreen;
 
     public GameObject hurtOverlay;
-    
+
     //Time Variables for health deprectiation
     public float time;
     public int prevtime;
 
     void Start()
     {
-        //Sets health to max
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        
+        healthBar.SetMaxHealth(100);
+
+        //sets oxygen to max
         oxygen.currentOxygen = 100;
     }
 
@@ -59,7 +59,16 @@ public class PlayerHealth : MonoBehaviour
         {
             time = 0;
             prevtime = 0;
-            
+
+        }
+
+        if (HealthUpgrade)
+        {
+            maxHealth = 250;
+        }
+        else
+        {
+            maxHealth = 100;
         }
     }
 
@@ -94,4 +103,19 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    public void UpgradeHealth()
+    {
+        if (HealthUpgrade)
+        {
+            healthBar.SetMaxHealth(250);
+            currentHealth = 250;
+            healthBar.SetHealth(250);
+        }
+        else
+        {
+            healthBar.SetMaxHealth(100);
+            currentHealth = 100;
+            healthBar.SetHealth(100);
+        }
+    }
 }

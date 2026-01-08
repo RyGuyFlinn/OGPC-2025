@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
-    Animator animator;
+    public Animator animator;
     AudioSource audio;
 
     float horizontal;
@@ -20,10 +22,22 @@ public class PlayerController : MonoBehaviour
     public GameObject hotbar;
     private GameObject itemToDrop;
 
+    public Sprite RadiationSuit;
+    public bool hasRadSuit;
+
     public AudioClip itemPickup;
     public AudioClip itemDrop;
     public AudioClip walk;
     public AudioClip failSound;
+
+    public Transform[] teleports;
+    public GameObject[] shipItems;
+    public GameObject[] bobItems;
+    public GameObject[] weatherItems;
+    private bool cooldown;
+    public GameObject itemFolder;
+
+    public bool isSwiming = false;
 
     void Start ()
     {
@@ -33,7 +47,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {  
+    {
+        animator.SetBool("IsSwimming", isSwiming);
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         distance = Mathf.Sqrt(horizontal*horizontal + vertical*vertical);
@@ -70,6 +85,49 @@ public class PlayerController : MonoBehaviour
         // Movement Animations
         animator.SetFloat("V_Speed", body.velocity.y);
         animator.SetFloat("H_Speed", body.velocity.x);
+
+        hasRadSuit = hotbar.GetComponent<hotbar>().HasItem(RadiationSuit) > 0;
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.R))
+        {
+            if (cooldown)
+            {
+                if (Input.GetKey(KeyCode.Alpha3))
+                {
+                    cooldown = false;
+                    ClearInventory();
+                    transform.position = teleports[0].position;
+                    for (int i = 0; i < shipItems.Length; i++)
+                    {
+                        hotbar.GetComponent<hotbar>().AddItem(shipItems[i], null);
+                    }
+                }
+                if (Input.GetKey(KeyCode.Alpha1))
+                {
+                    cooldown = false;
+                    ClearInventory();
+                    transform.position = teleports[1].position;
+                    for (int i = 0; i < weatherItems.Length; i++)
+                    {
+                        hotbar.GetComponent<hotbar>().AddItem(weatherItems[i], null);
+                    }
+                }
+                if (Input.GetKey(KeyCode.Alpha2))
+                {
+                    cooldown = false;
+                    ClearInventory();
+                    transform.position = teleports[2].position;
+                    for (int i = 0; i < bobItems.Length; i++)
+                    {
+                        hotbar.GetComponent<hotbar>().AddItem(bobItems[i], null);
+                    }
+                }
+            }
+        }
+        else
+        {
+            cooldown = true;
+        }
     }
 
     public void AddItem(GameObject ItemToAdd, GameObject ItemParent)
@@ -103,5 +161,13 @@ public class PlayerController : MonoBehaviour
     {
         audio.clip = failSound;
         audio.Play();
+    }
+
+    public void ClearInventory()
+    {
+        for (int i = 0;i < 6;i++)
+        {
+            hotbar.GetComponent<hotbar>().ClearHotBar();
+        }
     }
 }

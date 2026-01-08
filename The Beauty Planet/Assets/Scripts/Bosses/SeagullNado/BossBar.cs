@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BossBar : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class BossBar : MonoBehaviour
     public int currentHealth;
     public int stage = 1;
     public SeagulNado seagulNado;
+    public TMP_Text titleText;
+    public Door door;
+    public DoorClose doorClose;
+    public GameObject bossBar;
 
     //Gets HealthBar Script
     public BossBar1 healthBar;
@@ -22,6 +27,7 @@ public class BossBar : MonoBehaviour
         //Sets health to max
         currentHealth = StageOneMaxHealth;
         healthBar.SetMaxHealth(StageOneMaxHealth);
+        titleText.text = "SeagulNado";
     }
 
     void Update()
@@ -39,7 +45,7 @@ public class BossBar : MonoBehaviour
             }
             else if (stage == 2)
             {
-                SceneManager.LoadScene("WishlistScreen");
+                Die();
             }
         }
     }
@@ -50,5 +56,15 @@ public class BossBar : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-    
+
+    public void Die()
+    {
+        shake.start = true;
+        GetComponent<EnemyDropSystem>().DropItems();
+        door.isOpen = true;
+        seagulNado.isFighting = false;
+        doorClose.beaten = true;
+        bossBar.SetActive(false);
+        Destroy(gameObject);
+    }
 }

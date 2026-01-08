@@ -453,6 +453,14 @@ PrefabInstance:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 8000624594075079787}
+    - target: {fileID: 6072251854483733765, guid: f780d1425bc040a46b3d2cf4ac0ee07a, type: 3}
+      propertyPath: holdingItem
+      value: 
+      objectReference: {fileID: 926471605954328271, guid: 1db7e48a4d49f6c4080b39796fa7ed0c, type: 3}
+    - target: {fileID: 6072251854483733765, guid: f780d1425bc040a46b3d2cf4ac0ee07a, type: 3}
+      propertyPath: hasHoldingItem
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8694053776060099279, guid: f780d1425bc040a46b3d2cf4ac0ee07a, type: 3}
       propertyPath: m_Name
       value: Item

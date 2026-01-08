@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     private Transform target;
-    public float speed;
+    private Vector3 prevPos;
     public bool upAndDown;
     //private Animator animator;
     private SpriteRenderer renderer;
@@ -29,21 +29,22 @@ public class EnemyMove : MonoBehaviour
         
         if (upAndDown == true)
         {
-            speed = GetComponent<Rigidbody2D>().velocity.y;
+
         }
         else
         {
-            speed = GetComponent<Rigidbody2D>().velocity.x;
+            if (prevPos.x > transform.position.x + 0.05f)
+            {
+                renderer.flipX = true;
+            }
+            
+            if (prevPos.x < transform.position.x - 0.05f)
+            {
+                renderer.flipX = false;
+            }
         }
 
-        //animator.SetFloat("speed", speed);
-        if (speed < 0)
-        {
-            renderer.flipX = true;
-        }
-        else
-        {
-            renderer.flipX = false;
-        }
+        //prevpos sets to the current position for the next update
+        prevPos = transform.position;
     }
 }

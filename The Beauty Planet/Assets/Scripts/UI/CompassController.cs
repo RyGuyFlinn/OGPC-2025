@@ -9,15 +9,16 @@ public class CompassController : MonoBehaviour
     public Sprite inShip;
     //public Sprite compassItem;
     //public hotbar hotbar;
-    public GameObject target;
+    private GameObject target;
 
-    public GameObject player;
+    private GameObject player;
     public UnityEngine.UI.Image image;
 
     void Start()
     {
         image = GetComponent<UnityEngine.UI.Image>();
-        //player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
+        target = GameObject.Find("CrashSite");
     }
     void FixedUpdate()
     {
@@ -40,8 +41,6 @@ public class CompassController : MonoBehaviour
             {
                 image.sprite = directionSprites[direction];
             }
-
-            Debug.Log(direction);
         }
     }
 }

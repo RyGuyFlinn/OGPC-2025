@@ -21,7 +21,7 @@ public class OxygenTankUpgrade : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collide){
         if (collide.tag == "Player") {
             oxygen.slider.maxValue += MaxOxygenGain;
-            PlayerOxygen.maxOxygen += MaxOxygenGain;
+            PlayerOxygen.maxOxygen[PlayerOxygen.upgradeLevel] += MaxOxygenGain;
             Destroy(gameObject);
         }
 

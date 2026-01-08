@@ -10,6 +10,8 @@ public class Slot : MonoBehaviour
 {
     public bool selected = false;
 
+    public int slotNumber;
+
     public Sprite unSelected;
     public Sprite Selected;
 
@@ -19,28 +21,58 @@ public class Slot : MonoBehaviour
     public GameObject holdingItem;
     public bool has_item = false;
     public bool hasHoldingItem = false;
+    public bool hasHoldingItemWhenClicked = false;
 
     public TextMeshProUGUI quantityLabel;
     public int quantity = 0;
 
     public float HealAmount;
     public int OxygenAmount;
+    public int OxygenUpgrade;
+    public bool HealthUpgrade;
 
     public string item_name;
 
+    public bool crafting = false;
+
     void Update()
     {
-        if (hasHoldingItem == true)
+        if (holdingItem != null)
         {
-            if (selected == false)
+            if (hasHoldingItem == true)
             {
-                holdingItem.SetActive(false);
+                if (selected == false)
+                {
+                    holdingItem.SetActive(false);
+                }
+                else
+                {
+                    holdingItem.SetActive(true);
+                }
             }
-            else
+
+            else if (hasHoldingItemWhenClicked == true)
             {
-                holdingItem.SetActive(true);
+                if (selected == false)
+                {
+                    holdingItem.SetActive(false);
+                }
+                else
+                {
+                    if (Input.GetMouseButton(0))
+                    {
+                        holdingItem.SetActive(true);
+                    }
+                    else
+                    {
+                        holdingItem.SetActive(false);
+                    }
+                }
             }
         }
+
+        crafting = GameObject.Find("WorkBenchCollider").gameObject.GetComponent<WorkBench>().crafting;
+
         //Change the quantity label
         quantityLabel.text = "x" + quantity.ToString();
 
@@ -65,15 +97,28 @@ public class Slot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (HealAmount > 0)
+                if (crafting == false)
                 {
-                    GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
-                    RemoveItem();
-                }
-                if (OxygenAmount > 0)
-                {
-                    GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
-                    RemoveItem();
+                    if (HealAmount > 0)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().RaiseHealth(HealAmount);
+                        RemoveItem();
+                    }
+                    if (OxygenAmount > 0)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().RaiseOxygen(OxygenAmount);
+                        RemoveItem();
+                    }
+                    if (OxygenUpgrade > GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeLevel = OxygenUpgrade;
+                        GameObject.Find("Player").GetComponent<PlayerOxygen>().upgradeOxygen();
+                    }
+                    if (HealthUpgrade)
+                    {
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().HealthUpgrade = HealthUpgrade;
+                        GameObject.Find("Player").GetComponent<PlayerHealth>().UpgradeHealth();
+                    }
                 }
             }
         } 
@@ -91,9 +136,12 @@ public class Slot : MonoBehaviour
         quantity += 1;
 
         texture.sprite = ItemToAdd.GetComponent<IneractionItem>().icon;
+        gameObject.GetComponent<Window>().itemText = ItemToAdd.GetComponent<IneractionItem>().itemName;
 
         HealAmount = ItemToAdd.GetComponent<IneractionItem>().HealAmount;
         OxygenAmount = ItemToAdd.GetComponent<IneractionItem>().OxygenAmount;
+        OxygenUpgrade = ItemToAdd.GetComponent<IneractionItem>().OxygenUpgrade;
+        HealthUpgrade = ItemToAdd.GetComponent<IneractionItem>().HealthUpgrade;
 
         itemToDrop = Instantiate(itemToDrop, this.transform.position, this.transform.rotation);
         itemToDrop.SetActive(false);
@@ -103,6 +151,13 @@ public class Slot : MonoBehaviour
             GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
             holdingItem = Instantiate(item);
             hasHoldingItem = true;
+        }
+        if (currentItem.GetComponent<IneractionItem>().hasHoldingItemWhenClicked == true)
+        {
+            GameObject item = currentItem.GetComponent<IneractionItem>().holdingItem.gameObject;
+            holdingItem = Instantiate(item);
+            holdingItem.SetActive(false);
+            hasHoldingItemWhenClicked = true;
         }
     }
 
@@ -114,22 +169,38 @@ public class Slot : MonoBehaviour
             var tempColor = image.color;
             tempColor.a = 0f;
             image.color = tempColor;
-           
+            
             quantity = 0;
             currentItem = null;
             HealAmount = 0;
             OxygenAmount = 0;
             has_item = false;
             texture.sprite = null;
+
+            gameObject.GetComponent<Window>().itemText = "";
+
+            if (itemToDrop != null)
+            {
+                Destroy(itemToDrop.gameObject);
+                itemToDrop = null;
+            }
+
+            if (holdingItem != null)
+            {
+                Destroy(holdingItem.gameObject);
+                holdingItem = null;
+            }
+
             hasHoldingItem = false;
-            Destroy(itemToDrop.gameObject);
-            Destroy(holdingItem.gameObject);
-            itemToDrop = null;
         }
         else
         {
             quantity -= 1;
-            
         }
+    }
+
+    public void OnButtonPressed()
+    {
+        GameObject.Find("HotBar").gameObject.GetComponent<hotbar>().selected = slotNumber;
     }
 }

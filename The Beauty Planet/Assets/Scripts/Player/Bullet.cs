@@ -6,19 +6,33 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 5;
     public int damage = 25;
+    public int peircingLevel = 1;
 
     // Update is called once per frame
     void Update()
     {
         transform.position += transform.right * Time.deltaTime * speed;
+
+        if (peircingLevel <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Enemy")
         {
-            col.GetComponent<EnemyHealth>().takeDamage(damage);
-            Destroy(this.gameObject);
+            if (col.GetComponent<EnemyHealth>() == null)
+            {
+                col.GetComponent<EnemyHideHealth>().takeDamage(damage);
+                peircingLevel--;
+            }
+            else
+            {
+                col.GetComponent<EnemyHealth>().takeDamage(damage);
+                peircingLevel--;
+            }
         }
         if (col.tag == "Enviroment")
         {
@@ -27,12 +41,12 @@ public class Bullet : MonoBehaviour
         if (col.tag == "Boss")
         {
             col.gameObject.GetComponent<BossBar>().TakeDamage(damage);
-            Destroy(this.gameObject);
+            peircingLevel--;
         }
-        if (col.tag == "Bullet")
+        if (col.tag == "Bob")
         {
-            Destroy(col.gameObject);
-            Destroy(this.gameObject);
+            col.gameObject.GetComponent<BobBossBar>().TakeDamage(damage);
+            peircingLevel--;
         }
     }
 }

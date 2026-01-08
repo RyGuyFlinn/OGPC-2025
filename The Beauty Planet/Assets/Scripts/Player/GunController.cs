@@ -11,13 +11,15 @@ public class GunController : MonoBehaviour
     public GameObject player;
     public Transform muzzle;
     public AudioClip blastSound;
-
+    private float secret;
     public float fireRate = 0.3f;
     private float nextFire;
 
     public SpriteRenderer sprite;
 
     public Vector2 offset;
+
+    public bool crafting = false;
 
     void Start()
     {
@@ -28,6 +30,8 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        crafting = GameObject.Find("WorkBenchCollider").gameObject.GetComponent<WorkBench>().crafting;
+        
         transform.position = player.gameObject.transform.position + new Vector3(offset.x, offset.y, 0);
 
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
@@ -45,7 +49,7 @@ public class GunController : MonoBehaviour
             offset.x = Mathf.Abs(offset.x);
         }
 
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire)
+        if (Input.GetMouseButtonDown(0) && Time.time > nextFire && crafting == false)
         {
             nextFire = Time.time + fireRate;
 
@@ -54,6 +58,25 @@ public class GunController : MonoBehaviour
             //play blast sound
             audio.clip = blastSound;
             audio.Play();
+        }
+
+        //Secret code, to help beat game faster when showcasing to judges.
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            if (secret == 3)
+            {
+                nextFire = Time.time + fireRate;
+
+                Instantiate(projectile, muzzle.position, transform.rotation);
+
+                //play blast sound
+                audio.clip = blastSound;
+                audio.Play();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            secret += 1;
         }
     }
 }

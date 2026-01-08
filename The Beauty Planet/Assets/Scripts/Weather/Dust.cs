@@ -5,29 +5,60 @@ using UnityEngine;
 public class Dust : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int on = 0;
+    public float random;
     public GameObject Storm;
+    public bool InBiome;
+    public GameObject player;
+    public float time;
+    private bool Stormactive;
     void Start()
     {
-        
+        random = Random.Range(10, 30);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Random timer which switches the storm on and off.
+        time += Time.deltaTime;
+         if (InBiome == true)
         {
-            if (on == 0)
+            if (random <= time)
             {
-                Storm.SetActive(true);
-                on = 1;
+                if (Stormactive == false)
+                {
+                    Storm.SetActive(true);
+                    Stormactive = true;
+                }
+                else if (Stormactive == true)
+                {
+                    Storm.SetActive(false);
+                    Stormactive=false;
+                }
+                random = Random.Range(10, 30);
+                time = 0;
             }
-            else if (on == 1)
-            {
-                Storm.SetActive(false);
-                on = 0;
-            }
+        }
+           
 
+        
+    }
+    //Activates and deactivates dust when player is in biome.
+    void OnTriggerEnter2D(Collider2D collide){
+        if (collide.tag == "Player"){
+            InBiome = true;
+            Debug.Log("In plains!");
+        
+        
+        }
+    }
+    void OnTriggerExit2D(Collider2D collide){
+        if (collide.tag == "Player"){
+            InBiome = false;
+            Debug.Log("In plains!");
+        
+        Storm.SetActive(false);
+        Stormactive = false;
         }
     }
 }

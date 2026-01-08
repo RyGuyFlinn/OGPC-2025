@@ -11,6 +11,9 @@ public class IneractionItem : MonoBehaviour
     public GameObject prefab;
     public int HealAmount;
     public int OxygenAmount;
+    public int OxygenUpgrade;
+    public bool HealthUpgrade;
     public bool hasHoldingItem;
+    public bool hasHoldingItemWhenClicked;
     public GameObject holdingItem;
 }

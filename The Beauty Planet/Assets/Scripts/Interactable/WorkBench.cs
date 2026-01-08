@@ -9,6 +9,8 @@ public class WorkBench : MonoBehaviour
     public GameObject CraftingUI;
     public GameObject label;
 
+    public bool crafting = false;
+
     void Start()
     {
         label.SetActive(false);
@@ -24,7 +26,18 @@ public class WorkBench : MonoBehaviour
                 // Open Crafting UI
                 CraftingUI.SetActive(!CraftingUI.active);
             }
+
+            if (CraftingUI.active == true)
+            {
+                crafting = true;
+            }
+            else
+            {
+                crafting = false;
+            }
         }
+
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -35,6 +48,7 @@ public class WorkBench : MonoBehaviour
             player = collider.gameObject;
         }
     }
+
     void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.tag == "Player")

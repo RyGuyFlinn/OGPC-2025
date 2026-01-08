@@ -341,6 +341,10 @@ PrefabInstance:
       value: BulletSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 4243573735745925727, guid: ad17a018ddb647548943bf33a241a304, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 306588194350271391, guid: 946d316de0846bc419e4f9f665d94e06, type: 3}
+    - target: {fileID: 4243573735745925727, guid: ad17a018ddb647548943bf33a241a304, type: 3}
       propertyPath: firingRate
       value: 1
       objectReference: {fileID: 0}
